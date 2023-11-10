@@ -10,4 +10,16 @@ const getMatches = async () => {
     return res.data;
 }
 
-export default { getMatches, setToken }
+const postMatch = async (match) => {
+    const res = await fetch(`${api}/Matches`, {
+        method: "POST",
+        body: JSON.stringify(match),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": token
+        }
+    });
+    return res.data;
+}
+
+export default { getMatches, setToken, postMatch }
