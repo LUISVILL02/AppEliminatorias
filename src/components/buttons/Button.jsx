@@ -1,8 +1,13 @@
 import { Link }  from 'react-router-dom'
 
-export const Button = ({text, route}) => {
+export const Button = ({text, route, onClick}) => {
+    const hanleModal = (e) => {
+        e.preventDefault()
+        onClick(true)
+    }
     return (
-        <Link to={route}>{text}</Link>
+        //<Link to={route}>{text}</Link>
+        <a href="" onClick={hanleModal}>{text}</a>
     )
 }
 
