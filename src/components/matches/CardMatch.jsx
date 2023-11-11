@@ -4,19 +4,19 @@ const CardMatch = ({ match }) => {
         <div className="card">
             <div className="flag">
                 <img src="" alt="" />
-                <h1>{match.localteam}</h1>
+                <h1>{match.localTeam}</h1>
             </div>
-            <span>{match.localteam_score}</span>
+            <span>{match.localGoals}</span>
             <div className="datas">
                 <p>{match.date}</p>
                 <p>-</p>
                 <p>{match.stadium}</p>
-                <p>{match.reffere}</p>
+                <p>{match.refree}</p>
             </div>
-            <span>{match.visitorteam_score}</span>
+            <span>{match.visitingGoals}</span>
             <div className="flag">
                 <img src="" alt="" />
-                <h1>{match.visitorteam}</h1>
+                <h1>{match.visitingTeam}</h1>
             </div>
         </div>
     )

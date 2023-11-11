@@ -1,7 +1,40 @@
 import appService from '../../services/appService.js'
+import { useState } from 'react';
 import CardMatch from './CardMatch.jsx';
+import FormMatch from './FormMatch.jsx';
 import { Button } from '../buttons/Button.jsx';
-const Matches = () => {
+
+
+const match1 = {
+    date: '2023-10-11',
+    stadium: 'maracana',
+    refree: 'pitana',
+    localTeam: 'brasil',
+    visitingTeam: 'chile',
+    localGoals: 3,
+    visitingGoals: 0,
+    yellowCards: 2,
+    redCards: 0
+}
+const match2 = {
+    date: '2023-10-11',
+    stadium: 'bombonera',
+    refree: 'wilman roldan',
+    localTeam: 'Argentina',
+    visitingTeam: 'Peru',
+    localGoals: 2,
+    visitingGoals: 0,
+    yellowCards: 2,
+    redCards: 0
+}
+const listMatches = [match1, match2]
+
+
+export const Matches = () => {
+    const [matches, setMatches] = useState(listMatches)
+    //prueba solamente
+    const [open, setOpen] = useState(false)
+
     const user = true
     try {
         const matches = async () => {
@@ -12,33 +45,34 @@ const Matches = () => {
     } catch (error) {
         
     }
-    const match1 = {
-        localteam: 'Colombia', 
-        visitorteam: 'Venezuela', 
-        localteam_score: 2, 
-        visitorteam_score: 1, 
-        date: '2021-10-10',
-        stadium: 'Metropolitano',
-        reffere: 'wilton sampaio',
+    const handleMo = isModal => {
+        setOpen(isModal)
     }
-    const match2 = {
-        localteam: 'Argentina', 
-        visitorteam: 'Perú', 
-        localteam_score: 2, 
-        visitorteam_score: 0, 
-        date: '2021-10-10',
-        stadium: 'Monumental',
-        reffere: 'wilman roldan'
+
+    const hanleMatch = (ma) => {
+        console.log(ma);
+        setMatches([
+            ...matches,
+            ma
+        ])
     }
+
     return (
         <>
             <div className='matches'>
                 <ul>
-                    <li><CardMatch match={match1}/></li>
-                    <li><CardMatch match={match2}/></li>
+                    {matches.map((match, index) => {
+                        return (
+                            <li key={index}>
+                                <CardMatch match={match}/>
+                            </li>
+                        )
+                        
+                    })}
                 </ul>
             </div>
-            {user ? <Button text="Crear partido" route='/agregarPartido'/> : <></>}
+            {user ? <Button text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
+            {open && <FormMatch onMatch={hanleMatch}/>}
         </>
     )
 }
