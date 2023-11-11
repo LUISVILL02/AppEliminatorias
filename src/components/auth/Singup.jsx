@@ -1,4 +1,4 @@
-import singup from './auth.js'
+import { singup } from './auth.js'
 import { useState } from 'react'
 
 const Singup = () => {

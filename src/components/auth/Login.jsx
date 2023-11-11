@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import login from './auth.js'
+import { login } from './auth.js'
 const Login = () => {
 
     const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ const Login = () => {
             window.localStorage.setItem('user', JSON.stringify(user));  
             //llamar a la funcion que estructura el token
         } catch (error) {
-            
+            console.log(error);
         }
     }
 
