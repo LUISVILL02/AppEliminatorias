@@ -10,16 +10,14 @@ const fetching = async (url, datos) => {
 
 }
 
-const login = async (email, password) => {
+export const login = (email, password) => {
     const datos = {email, password};
     const res = fetching('login', datos);
     return res.data;
 }
 
-const singup = async (user, email, password) => {
+export const singup = async (user, email, password) => {
     const datos = {user, email, password};
     const res = fetching('singup', datos);
     return res;
 }
-
-export default { login, singup };
