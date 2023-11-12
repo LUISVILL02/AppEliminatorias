@@ -1,28 +1,31 @@
-import { ButtonSubmit } from "../buttons/Button.jsx"
-
+import { ButtonSubmit } from "../buttons/Button.jsx";
+import './FormTeamStyles.css';
 
 const FormTeam = () => {
     return (
-        <form>
-            <h1>Datos del equipo</h1>
-            <section className="inputs">
-                <div className="name">
+        <form id="formEquipo">
+            <h1 id="datos">Datos del equipo</h1>
+                <section id="inputs">
+                <div className="formInput">
                     <label htmlFor="">Nombre</label>
-                    <input type="text" placeholder="nombre"/>
+                    <input className="inputTeam" type="text" placeholder="nombre"/>
                 </div>
-                <div className="coach">
+                <div className="formInput">
                     <label htmlFor="">Director técnico</label>
-                    <input type="text" placeholder="entrenador"/>
+                    <input className="inputTeam" type="text" placeholder="entrenador"/>
                 </div>
-                <div className="url-flag">
+                <div className="formInput">
                     <label htmlFor="">Url bandera</label>
-                    <input type="url" placeholder="nombre"/>
+                    <input className="inputTeam" type="url" placeholder="nombre"/>
                 </div>
             </section>
-            <section className="preview">
+            <section id="preview">
                 <img src="" alt="bandera preview" />
+            </section>
+            <section id="boton">
                 <ButtonSubmit text="Guardar"/>
             </section>
+
         </form>
     )
 }

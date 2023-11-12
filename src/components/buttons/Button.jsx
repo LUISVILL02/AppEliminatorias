@@ -1,5 +1,5 @@
 import { Link }  from 'react-router-dom'
-
+import "./ButtonStyles.css"
 export const Button = ({text, route, onClick}) => {
     const hanleModal = (e) => {
         e.preventDefault()
@@ -7,12 +7,12 @@ export const Button = ({text, route, onClick}) => {
     }
     return (
         //<Link to={route}>{text}</Link>
-        <a href="" onClick={hanleModal}>{text}</a>
+        <a href="" onClick={hanleModal} className='botones'>{text}</a>
     )
 }
 
 export const ButtonSubmit = ({text}) => {
     return (
-        <button type="submit">{text}</button>
+        <button type="submit" className='buttons'>{text}</button>
     )
 }

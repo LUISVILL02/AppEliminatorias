@@ -1,0 +1,17 @@
+.botones{
+    display: inline-block;
+    padding: 10px 50px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #6336E4;
+    border-radius: 20px;
+    margin-right: 50px;
+}
+
+.buttons{
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

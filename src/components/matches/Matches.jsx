@@ -8,7 +8,7 @@ import { Button } from '../buttons/Button.jsx';
 const match1 = {
     date: '2023-10-11',
     stadium: 'maracana',
-    refree: 'pitana',
+    refree: 'nestor pitana',
     localTeam: 'brasil',
     visitingTeam: 'chile',
     localGoals: 3,
@@ -60,7 +60,7 @@ export const Matches = () => {
     return (
         <>
             <div className='matches'>
-                <ul>
+                <ul className='lista'>
                     {matches.map((match, index) => {
                         return (
                             <li key={index}>
@@ -71,7 +71,7 @@ export const Matches = () => {
                     })}
                 </ul>
             </div>
-            {user ? <Button text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
+            {user ?<Button text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
             {open && <FormMatch onMatch={hanleMatch}/>}
         </>
     )
