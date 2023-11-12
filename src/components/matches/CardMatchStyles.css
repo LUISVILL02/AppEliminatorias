@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+.card{
+    height: 270px;
+    border: 1px solid #CCCCCC;
+    margin-bottom: 15px;
+    display: flex;
+    font-family: 'Ubuntu', sans-serif;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+#cPartido{
+    right: 10px;
+}
+
+.datas{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    list-style-type: none;
+    
+}
+
+.gol{
+    font-size: 30px;
+}
+
+.nombrePais{
+    z-index: 9;
+}
+
+.flag{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+#left{
+    left: 20%;
+}
+
+#right{
+    right: 20%;
+}
+
+#fecha{
+    position: relative;
+    top: 20px;
+}
+
+#refree{
+    position: relative;
+    bottom: 10px;
+}
+
+#estadio{
+    position: relative;
+    font-size: 25px;
+    bottom: -35px;
+}
+
+#raya{
+    position: relative;
+    font-size: 25px;
+    top: 43px;
+}

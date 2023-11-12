@@ -1,4 +1,7 @@
 import { useState } from "react";
+import roja from '../../assets/roja.png';
+import amarilla from '../../assets/amarillo.png';
+import "./FormMatchStyles.css";
 
 const matchDates = {
     date: '',
@@ -29,8 +32,8 @@ const FormMatch = ({onMatch}) => {
         setMatch(matchDates);
     }
     return (
-        <form onSubmit={handleMatch}>
-            <h1>Datos requeridos del partido</h1>
+        <form onSubmit={handleMatch} id="formPartido">
+            <h1 id="tituloPartido">Datos requeridos del partido</h1>
             <div className="date">
                 <label htmlFor="">Fecha</label>
                 <input 
@@ -58,14 +61,14 @@ const FormMatch = ({onMatch}) => {
                     value={match.refree}
                     onChange={handleInputMatch}/>
             </div>
-            <div className="local-team">
+                <div className="local-team">
                 <label htmlFor="">Equipo local</label>
                 <select name="localTeam" value={match.localTeam} onChange={handleInputMatch}>
                     <option value="opcion">Equipo</option>
                     <option value="colombia">Colombia</option>
                     <option value="Venezuela">Venezuela</option>
                 </select>
-                <label htmlFor="">Goles</label>
+                <label htmlFor="" id="goles">Goles</label>
                 <input type="number" name="localGoals" value={match.localGoals} onChange={handleInputMatch}/>
             </div>
             <div className="visiting-team">
@@ -77,10 +80,10 @@ const FormMatch = ({onMatch}) => {
                 </select>
                 <input type="number" name="visitingGoals" value={match.visitingGoals} onChange={handleInputMatch}/>
             </div>
-            <img src="" alt="tarjeta amarilla" />
-            <input type="number" name="yellowCards" value={match.yellowCards} onChange={handleInputMatch}/>
-            <img src="" alt="tarjeta roja" />
-            <input type="number" name="redCards" value={match.redCards} onChange={handleInputMatch}/>
+            <img className="imgY" src={amarilla} alt="tarjeta amarilla" />
+            <input className="yellow" type="number" name="yellowCards" value={match.yellowCards} onChange={handleInputMatch}/>
+            <img className="imgR" src={roja} alt="tarjeta roja" />
+            <input className="red" type="number" name="redCards" value={match.redCards} onChange={handleInputMatch}/>
             <button type="submit">Agregar</button>
         </form>
     )

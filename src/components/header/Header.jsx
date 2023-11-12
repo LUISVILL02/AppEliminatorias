@@ -1,11 +1,14 @@
 import  Search  from '../search/Search.jsx'
 import { Link }  from 'react-router-dom'
+import "./headerStyle.css";
+//import {FontAwesomeIcon} from '@fortawesome/free-solid-svg-icons';
+//import {faUser} from '@fortawesome/free-solid-svg-icons';
+//import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     const user = true
     return (
         <header>
-            
                 <nav>
                     <ul>
                         <li>
@@ -25,7 +28,7 @@ const Header = () => {
                             <Search />
                         </li>
                         <li>
-                            {user ? <Link to="/user">icono</Link> : 
+                                {user ? <Link to="/user">Icono</Link> : 
                             <Link to="/login">Login</Link>}
                         </li>
                     </ul>

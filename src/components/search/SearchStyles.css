@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+  
+  .search button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  .search .search-input-container {
+    position: absolute;
+    top: 0;
+    left: -15px; 
+    width: 15px; 
+    z-index: 0;
+  }
+
+  .buscador{
+    background: none;
+    position: absolute;
+    top: 30%;
+    right: 300px; 
+    width: 20%;
+    padding: 10px 0;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    border-color: white;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  .buscador::placeholder{
+    color: white;
+    padding-left: 10px;
+  }
+  .search.active .search-input-container {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+  }

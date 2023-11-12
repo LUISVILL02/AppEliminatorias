@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+#datos{
+    width: 940px;
+    height: 77px;
+    left: 108px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 50px;
+    padding-left: 100px;
+    margin-top: 50px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+}
+
+#formEquipo{
+    border: 2px solid grey;
+    border-image: conic-gradient(grey) 1;
+    width: 1124px;
+    height: 601px;
+    top: 201px;
+    left: 158px;
+    margin: 60px 40px 70px 70px;
+    align-items: center;
+    border-radius: 20px; 
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#inputs{
+    padding-left: 100px;
+}
+
+.inputTeam{
+    width: 20%; 
+    height: 35px;
+    border-radius: 5px; 
+    background-color: rgba(255, 255, 255, 0.0);
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+.inputTeam::placeholder {
+    padding-top: 5px; 
+    padding-left: 10px; 
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 2;
+  }
+
+.formInput{
+    margin: 20px 0;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#preview {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    left: 60%; 
+    bottom: 20%;
+  }
+
+  #preview img {
+    max-width: 100%; 
+    margin-top: 10px; 
+    margin-bottom: 20px;
+  }
+
+  #boton{
+    position: absolute;
+    left: 60%; 
+    bottom: 10%;
+  }
