@@ -1,0 +1,26 @@
+
+.lista{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.banner{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+}
+
+.logoFifa{
+    object-fit: cover;
+    width: 135px;
+    height: 135px;
+}
+.container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 30px 30px 0px 0px;
+    background: linear-gradient(90deg, #A6A4C0 0.09%, #B589FC 99.92%);
+    padding: 20px;
+}

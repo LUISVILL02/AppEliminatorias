@@ -1,17 +1,28 @@
-.botones{
-    display: inline-block;
-    padding: 10px 50px;
-    font-weight: bold;
+.botones, .buttons{
     cursor: pointer;
     background-color: transparent;
     border: 2px solid #6336E4;
-    border-radius: 20px;
-    margin-right: 50px;
+    border-radius: 30px;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    padding: 14px 60px;
 }
 
-.buttons{
-    display: inline-block;
+.btn{
+    position: relative;
+    right: 0;
+    left: 1000px;
+    top: -30px;
+    padding: 20px;
+    width: 20%;
+    background-color: #242424;
+}
+.btn:hover{
+    background-color: #6336E4;
     color: white;
-    font-weight: bold;
-    cursor: pointer;
+    transition: 0.5s;
 }

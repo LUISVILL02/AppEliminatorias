@@ -1,76 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
 .card{
-    height: 270px;
+    height: 100%;
     border: 1px solid #CCCCCC;
-    margin-bottom: 15px;
     display: flex;
     font-family: 'Ubuntu', sans-serif;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     overflow: auto;
-    width: 100%;
+    width: 1000px;
+    padding: 0 50px 0 50px;
     overflow-y: hidden;
-}
 
-#cPartido{
-    right: 10px;
+    gap: 40px;
+}
+.nombrePais{
+    font-size: 30px;
 }
 
 .datas{
-    align-items: center;
+    padding: 20px 0 20px 0;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
 }
 
+.sta-refe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bandera{
+    width: 100px;
+    height: 66.607px;
+    object-fit: cover;
+}
 ul{
     list-style-type: none;
     
 }
 
 .gol{
-    font-size: 30px;
+    font-size: 50px;
 }
 
-.nombrePais{
-    z-index: 9;
-}
 
 .flag{
-    position: absolute;
+    display: flex;
     align-items: center;
     justify-content: center;
-    display: flex;
     flex-direction: column;
-    z-index: 10;
+    padding: 50px 0 50px 0;
+    gap: 10px;
 }
-
-#left{
-    left: 20%;
-}
-
-#right{
-    right: 20%;
-}
-
-#fecha{
-    position: relative;
-    top: 20px;
-}
-
-#refree{
-    position: relative;
-    bottom: 10px;
-}
-
-#estadio{
-    position: relative;
+.fecha, .estadio{
     font-size: 25px;
-    bottom: -35px;
 }
-
-#raya{
-    position: relative;
-    font-size: 25px;
-    top: 43px;
+.refree{
+    font-size: 17px;
 }

@@ -1,0 +1,40 @@
+
+.singup-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.singup{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 70%;
+    width: 500px;
+    border: 1px solid #4A4A4A;
+    border-radius: 20px;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+.input-userr{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.input-user-email{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.input-passwordd{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
