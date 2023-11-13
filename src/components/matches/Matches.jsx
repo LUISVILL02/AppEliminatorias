@@ -3,14 +3,15 @@ import { useState } from 'react';
 import CardMatch from './CardMatch.jsx';
 import FormMatch from './FormMatch.jsx';
 import { Button } from '../buttons/Button.jsx';
-
+import logoFifa from '../../assets/2026_fifa_world_cup-logo_brandlogos.net_tikll.png'
+import './matchesStyles.css'
 
 const match1 = {
     date: '2023-10-11',
     stadium: 'maracana',
     refree: 'nestor pitana',
-    localTeam: 'brasil',
-    visitingTeam: 'chile',
+    localTeam: 'Brasil',
+    visitingTeam: 'Chile',
     localGoals: 3,
     visitingGoals: 0,
     yellowCards: 2,
@@ -61,7 +62,13 @@ export const Matches = () => {
         <>
             <div className='matches'>
                 <ul className='lista'>
-                    {matches.map((match, index) => {
+                    <div className="banner">
+                        <div className="container">
+                            <img src={logoFifa} alt="" className='logoFifa'/>
+                            <h1 className='tituloList'>FIFA world cup 2026</h1>
+                        </div>
+                    </div>
+                    {matches.length > 0 && matches.map((match, index) => {
                         return (
                             <li key={index}>
                                 <CardMatch match={match}/>

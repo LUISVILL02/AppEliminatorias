@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { login } from './auth.js'
+import { ButtonSubmit } from '../buttons/Button.jsx';
+import './styles/login.css'
 const Login = () => {
 
     const [email, setEmail] = useState('');
@@ -18,18 +20,20 @@ const Login = () => {
     }
 
     return (
-        <form onSubmit={hanleLogin} className="login">
-            <h1>Iniciar sesion</h1>
-            <div className="input-user">
-                <label htmlFor="">Correo</label>
-                <input type="email" placeholder="Usuario" onChange={({target}) => setEmail(target.value)}/>
-            </div>
-            <div className="input-password">
-                <label htmlFor="">Contraseña</label>
-                <input type="password" placeholder="Usuario" onChange={({target}) => setPassword(target.value)}/>
-            </div>
-            <button type="submit">Login</button>
-        </form>
+        <main className="form">
+            <form onSubmit={hanleLogin} className="login">
+                <h1 className='tittle'>Iniciar sesion</h1>
+                <div className="input-user">
+                    <label htmlFor="">Correo</label>
+                    <input type="email" onChange={({target}) => setEmail(target.value)}/>
+                </div>
+                <div className="input-password">
+                    <label htmlFor="">Contraseña</label>
+                    <input type="password" onChange={({target}) => setPassword(target.value)}/>
+                </div>
+                <ButtonSubmit text="Login"/>
+            </form>
+        </main>
     )
 }
 

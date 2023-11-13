@@ -1,35 +1,36 @@
 import  Search  from '../search/Search.jsx'
 import { Link }  from 'react-router-dom'
 import "./headerStyle.css";
-//import {FontAwesomeIcon} from '@fortawesome/free-solid-svg-icons';
-//import {faUser} from '@fortawesome/free-solid-svg-icons';
-//import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { HomeIcon, UserIncon } from '../icons/Icons.jsx';
+import { ButtonNavigate } from '../buttons/Button.jsx';
 
 const Header = () => {
     const user = true
     return (
         <header>
                 <nav>
-                    <ul>
+                    <ul className='ul1'>
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link to="/" className='navi'><HomeIcon/>  Home</Link>
                         </li>
                         <li>
-                            <Link to="/partidos">Partidos</Link>
+                            <Link to="/partidos" className='navi'>Partidos</Link>
                         </li>
                         <li>
-                            <Link to="/api">Api</Link>
+                            <Link to="/api" className='navi'>Api</Link>
                         </li>
                         {user && 
                         <li>
-                            <Link to="/equipos">Equipos</Link>
+                            <Link to="/equipos" className='navi'>Equipos</Link>
                         </li>}
+                    </ul>
+                    <ul className='ul2'>
                         <li>
                             <Search />
                         </li>
                         <li>
-                                {user ? <Link to="/user">Icono</Link> : 
-                            <Link to="/login">Login</Link>}
+                            {user ? <Link to="/user"><UserIncon/></Link> : 
+                            <Link to="/login" className='btn-login'>Login</Link>}
                         </li>
                     </ul>
                 </nav>

@@ -1,5 +1,7 @@
 import { singup } from './auth.js'
 import { useState } from 'react'
+import { ButtonSubmit } from '../buttons/Button.jsx';
+import './styles/singup.css'
 
 const Singup = () => {
     const [email, setEmail] = useState('')
@@ -17,22 +19,24 @@ const Singup = () => {
         }
     }
     return (
-        <form onSubmit={hanleSingup} className="login">
-            <h1>Registrarse</h1>
-            <div className="input-user">
-                <label htmlFor="">Usuario</label>
-                <input type="text" placeholder="Usuario" onChange={({target}) => setUser(target.value)}/>
-            </div>
-            <div className="input-user-email">
-                <label htmlFor="">Correo</label>
-                <input type="email" placeholder="Correo" onChange={({target}) => setEmail(target.value)}/>
-            </div>
-            <div className="input-password">
-                <label htmlFor="">Contraseña</label>
-                <input type="password" placeholder="Usuario" onChange={({target}) => setPassword(target.value)}/>
-            </div>
-            <button type="submit">Registrase</button>
-        </form>
+        <div className="singup-form">
+            <form onSubmit={hanleSingup} className="singup">
+                <h1 className='tittle'>Registrarse</h1>
+                <div className="input-userr">
+                    <label htmlFor="">Usuario</label>
+                    <input type="text" onChange={({target}) => setUser(target.value)}/>
+                </div>
+                <div className="input-user-email">
+                    <label htmlFor="">Correo</label>
+                    <input type="email" onChange={({target}) => setEmail(target.value)}/>
+                </div>
+                <div className="input-passwordd">
+                    <label htmlFor="">Contraseña</label>
+                    <input type="password" onChange={({target}) => setPassword(target.value)}/>
+                </div>
+                <ButtonSubmit text="Register"/>
+            </form>
+        </div>
     )
 }
 

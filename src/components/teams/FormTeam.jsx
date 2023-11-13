@@ -20,7 +20,7 @@ const FormTeam = () => {
                 </div>
             </section>
             <section id="preview">
-                <img src="" alt="bandera preview" />
+                <img src="https://flagsapi.com/CO/flat/64.png" alt="bandera preview" />
             </section>
             <section id="boton">
                 <ButtonSubmit text="Guardar"/>
