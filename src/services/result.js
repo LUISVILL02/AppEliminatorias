@@ -10,7 +10,7 @@ export const postResult = async (result) => {
         body: JSON.stringify(result),
         headers: {
             "Content-type": "application/json; charset=UTF-8",
-            Authorization: token
+            Authorization: `Bearer ${token}`
         }
     });
     if(res.status === 201){

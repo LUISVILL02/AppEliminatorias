@@ -10,7 +10,7 @@ export const postTeams = async (teams) => {
         body: JSON.stringify(teams),
         headers: {
             "Content-type": "application/json; charset=UTF-8",
-            Authorization: token
+            Authorization: `Bearer ${token}`
         }
     });
     if(res.status === 201){
@@ -35,4 +35,18 @@ export const getById = async (id) => {
     return res;
 }
 
-export default { postTeams, getById }
+export const getTeams = async () => {
+    const res = await fetch(`${api}/Teams`, {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Authorization: `Bearer ${token}`
+        }
+    });
+    if(res.status === 200){
+        const data = await res.json();
+        return data;
+    }
+    return res;
+}
+export default { postTeams, getById, getTeams }

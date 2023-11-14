@@ -19,7 +19,7 @@ const CardMatch = ({ match }) => {
     return (
         <div className="card">
             <div className="flag" id="left">
-                <img src="https://flagsapi.com/CO/flat/64.png" alt="bandera" className="bandera"/>
+                <img src={teamLcal.flag} alt="bandera" className="bandera"/>
                 <h1 className="nombrePais">{teamLcal.name}</h1>
             </div>
             <span className="gol">{match.score.localGoal}</span>
@@ -35,7 +35,7 @@ const CardMatch = ({ match }) => {
             </div>
             <span className="gol">{match.score.visitingGoal}</span>
             <div className="flag" id="right">
-                <img src="https://flagsapi.com/BE/flat/64.png" alt="bandera" className="bandera"/>
+                <img src={teamVisi.flag} alt="bandera" className="bandera"/>
                 <h1 className="nombrePais">{teamVisi.name}</h1>
             </div>
         </div>

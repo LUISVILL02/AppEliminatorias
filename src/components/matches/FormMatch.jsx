@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import roja from '../../assets/roja.png';
 import amarilla from '../../assets/amarillo.png';
 import { setToken, postMatch } from '../../services/appService.js';
 import result, { postResult } from "../../services/result.js";
+import { getTeams } from "../../services/teams.js";
 import "./FormMatchStyles.css";
 
 
@@ -16,14 +17,25 @@ const matchDates = {
     date: '',
     stadium: '',
     refree: '',
-    localTeam: '',
-    visitingTeam: '',
+    localTeam: 0,
+    visitingTeam: 0,
     score:{...score}
 }
 
 const FormMatch = ({onMatch}) => {
-    const [match, setMatch] = useState(matchDates)
-    const [result, setResult] = useState(score)
+    const [match, setMatch] = useState(matchDates);
+    const [result, setResult] = useState(score);
+    const [teams, setTeams] = useState([]);
+    const [idLocalTeam, setIdLocalTeam] = useState(0);
+    const [idVisitingTeam, setIdVisitingTeam] = useState(0);
+
+    useEffect(() => {
+        const getTeam = async () => {
+            const teamList = await getTeams();
+            setTeams(teamList);
+        }
+        getTeam();
+    }, []);
     
     const handleInputMatch = ({target}) => {
         // if (target.name === "date") {
@@ -39,6 +51,31 @@ const FormMatch = ({onMatch}) => {
             ...match,
             [target.name]: target.value
         })
+        
+    }
+    const handleInputTeamOption = (event) => {
+        const selectedTeamName = event.target.value;
+        const selectedTeam = teams.find(team => team.name === selectedTeamName);
+
+        if (event.target.name === "localTeam") {
+            setIdLocalTeam(selectedTeam.idTeam);
+            setMatch({
+                ...match,
+                [event.target.name]: selectedTeam.idTeam
+            });
+            console.log(selectedTeam);
+        }else{
+            if (event.target.name === "visitingTeam") {
+                setIdVisitingTeam(selectedTeam.idTeam);
+                setMatch({
+                    ...match,
+                    [event.target.name]: selectedTeam.idTeam
+                });
+                console.log(selectedTeam);
+            }
+        console.log(idLocalTeam);
+        console.log(idVisitingTeam);
+        }
         
     }
     const handleInputResult = ({target}) => {
@@ -67,7 +104,7 @@ const FormMatch = ({onMatch}) => {
         console.log(scor);
         setMatch(matchDates);
         setResult(score);
-        //postMatch(match);
+        postMatch(match);
     }
     return (
         <form onSubmit={handleMatch} id="formPartido">
@@ -101,20 +138,25 @@ const FormMatch = ({onMatch}) => {
             </div>
                 <div className="local-team">
                 <label htmlFor="">Equipo local</label>
-                <select name="localTeam" value={match.localTeam} onChange={handleInputMatch}>
-                    <option value="opcion">Equipo</option>
-                    <option value="colombia">Colombia</option>
-                    <option value="Venezuela">Venezuela</option>
+                <select name="localTeam" value={match.localTeam} onChange={handleInputTeamOption}>
+                    {teams.map((team) => {
+                        console.log(team);
+                        return (
+                            <option key={team.idTeam} value={team.idTeam}>{team.name}</option>
+                        )
+                    })}
                 </select>
                 <label htmlFor="" id="goles">Goles</label>
                 <input type="number" name="localGoal" value={result.localGoal} onChange={handleInputResult}/>
             </div>
             <div className="visiting-team">
                 <label htmlFor="">Equipo visitante</label>
-                <select name="visitingTeam" value={match.visitingTeam} onChange={handleInputMatch}>
-                    <option value="opcion">Equipo</option>
-                    <option value="colombia">Colombia</option>
-                    <option value="Venezuela">Venezuela</option>
+                <select name="visitingTeam" value={match.visitingTeam} onChange={handleInputTeamOption}>
+                    {teams.map((team) => {
+                            return (
+                                <option key={team.idTeam} value={team.idTeam}>{team.name}</option>
+                            )
+                        })}
                 </select>
                 <input type="number" name="visitingGoal" value={result.visitingGoal} onChange={handleInputResult}/>
             </div>
