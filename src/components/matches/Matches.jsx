@@ -13,23 +13,23 @@ export const Matches = () => {
 
     const userToken = window.localStorage.getItem('user');
     useEffect(() => {
-        const matches = async () => {
+        const matchLis = async () => {
             setToken(userToken);
-            
             const matches = await appService.getMatches();
             setMatches(matches);
         }  
-        matches();
+        matchLis();
     } ,[])
+    console.log("mat: ",matches);
 
     const handleMo = isModal => {
         setOpen(isModal)
     }
 
     const hanleMatch = (ma) => {
-        console.log(ma);
-        setMatches([
-            ...matches,
+        console.log("partido: ",ma);
+        setMatches(prev => [
+            ...prev,
             ma
         ])
     }
@@ -44,9 +44,10 @@ export const Matches = () => {
                             <h1 className='tituloList'>FIFA world cup 2026</h1>
                         </div>
                     </div>
-                    {matches.length > 0 && matches.map((match, index) => {
+                    {matches.length > 0 && matches.map((match) => {
+                        console.log("match: ",match);
                         return (
-                            <li key={index}>
+                            <li key={match.id}>
                                 <CardMatch match={match}/>
                             </li>
                         )

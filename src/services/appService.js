@@ -22,6 +22,15 @@ const getMatches = async () => {
 }
 
 export const postMatch = async (match) => {
+    const date = match.date;
+    const fecha = new Date(date);
+    const dateFormater = fecha.toLocaleString("es-CO", {
+        pattern: "dd/MM/yyyy",
+    });
+    const dateForm = dateFormater.substring(0, dateFormater.indexOf(","));
+    console.log("dateFormater:", dateForm);
+    match.date = dateForm;
+    console.log("add:", token);
     const res = await fetch(`${api}/Matches`, {
         method: "POST",
         body: JSON.stringify(match),
@@ -30,7 +39,7 @@ export const postMatch = async (match) => {
             Authorization: token
         }
     });
-    if(res.status === 200){
+    if(res.status === 201){
         const data = await res.json();
         return data;
     }

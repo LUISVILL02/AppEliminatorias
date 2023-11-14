@@ -16,18 +16,20 @@ const score ={
 const matchDates = {
     date: '',
     stadium: '',
-    refree: '',
-    localTeam: 0,
-    visitingTeam: 0,
-    score:{...score}
+    mainFerefe: '',
+    idLocalTeam: 0,
+    idVisitingTeam: 0,
+    score:{
+        id: 0,
+        ...score}
 }
 
 const FormMatch = ({onMatch}) => {
     const [match, setMatch] = useState(matchDates);
     const [result, setResult] = useState(score);
     const [teams, setTeams] = useState([]);
-    const [idLocalTeam, setIdLocalTeam] = useState(0);
-    const [idVisitingTeam, setIdVisitingTeam] = useState(0);
+    const [local, setLocal] = useState(0);
+    const [visiting, setVisiting] = useState(0);
 
     useEffect(() => {
         const getTeam = async () => {
@@ -38,45 +40,18 @@ const FormMatch = ({onMatch}) => {
     }, []);
     
     const handleInputMatch = ({target}) => {
-        // if (target.name === "date") {
-        //     const date = new Date(target.value);
-        //     const dateFormater = date.toLocaleString("UTC");
-        //     const dateForm = dateFormater.substring(0, dateFormater.indexOf(","));
-        //     setMatch({
-        //         ...match,
-        //         [target.name]: dateForm
-        //     });
-        // }else{
         setMatch({
             ...match,
             [target.name]: target.value
-        })
-        
+        })  
     }
-    const handleInputTeamOption = (event) => {
+    const handleInputTeamOptionLocal = (event) => {
         const selectedTeamName = event.target.value;
-        const selectedTeam = teams.find(team => team.name === selectedTeamName);
-
-        if (event.target.name === "localTeam") {
-            setIdLocalTeam(selectedTeam.idTeam);
-            setMatch({
-                ...match,
-                [event.target.name]: selectedTeam.idTeam
-            });
-            console.log(selectedTeam);
-        }else{
-            if (event.target.name === "visitingTeam") {
-                setIdVisitingTeam(selectedTeam.idTeam);
-                setMatch({
-                    ...match,
-                    [event.target.name]: selectedTeam.idTeam
-                });
-                console.log(selectedTeam);
-            }
-        console.log(idLocalTeam);
-        console.log(idVisitingTeam);
-        }
-        
+        setLocal(selectedTeamName);
+    }
+    const handleInputTeamOptionVisiting = (event) => {
+        const selectedTeamName = event.target.value;
+        setVisiting(selectedTeamName);
     }
     const handleInputResult = ({target}) => {
         setResult({
@@ -94,17 +69,25 @@ const FormMatch = ({onMatch}) => {
     const handleMatch = async (event) => {
         event.preventDefault();
         setToken(window.localStorage.getItem('user'));
-        console.log(match);
-        setMatch((preve) => ({
-            ...preve,
-            score: { ...result }
-        }));
-        onMatch(match);
+        console.log("valores : ",local, visiting, match);
+        
         const scor = await postResult(result);
-        console.log(scor);
         setMatch(matchDates);
         setResult(score);
-        postMatch(match);
+        
+        const updateMatch = {
+            ...match,
+            idLocalTeam: local,
+            idVisitingTeam: visiting,
+            score: { 
+                id: scor.id,
+                ...result }
+            }
+        console.log("update", updateMatch, "score", scor, "result", result);
+        setMatch(matchDates);
+        onMatch(updateMatch)
+        const addmatch = await postMatch(updateMatch);
+        console.log(addmatch);
     }
     return (
         <form onSubmit={handleMatch} id="formPartido">
@@ -132,15 +115,15 @@ const FormMatch = ({onMatch}) => {
                 <input 
                     type="text" 
                     placeholder="Wilman roldan"
-                    name="refree"
-                    value={match.refree}
+                    name="mainFerefe"
+                    value={match.mainFerefe}
                     onChange={handleInputMatch}/>
             </div>
-                <div className="local-team">
+            <div className="local-team">
                 <label htmlFor="">Equipo local</label>
-                <select name="localTeam" value={match.localTeam} onChange={handleInputTeamOption}>
+                <select name="idLocalTeam" value={local} onChange={handleInputTeamOptionLocal}>
+                    <option value="">Seleccione un equipo</option>
                     {teams.map((team) => {
-                        console.log(team);
                         return (
                             <option key={team.idTeam} value={team.idTeam}>{team.name}</option>
                         )
@@ -151,7 +134,8 @@ const FormMatch = ({onMatch}) => {
             </div>
             <div className="visiting-team">
                 <label htmlFor="">Equipo visitante</label>
-                <select name="visitingTeam" value={match.visitingTeam} onChange={handleInputTeamOption}>
+                <select name="idVisitingTeam" value={visiting} onChange={handleInputTeamOptionVisiting}>
+                    <option value="">Seleccione un equipo</option>
                     {teams.map((team) => {
                             return (
                                 <option key={team.idTeam} value={team.idTeam}>{team.name}</option>
