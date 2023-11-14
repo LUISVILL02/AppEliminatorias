@@ -1,19 +1,26 @@
 import { useState } from 'react'
 import { login } from './auth.js'
+import {setToken} from '../../services/appService.js'
 import { ButtonSubmit } from '../buttons/Button.jsx';
+import { useNavigate } from 'react-router-dom';
 import './styles/login.css'
-const Login = () => {
+
+
+export const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const navigate = useNavigate();
     const hanleLogin = async (e) => {
         e.preventDefault()
         try {
             const user = await login(email, password);
-            console.log(user.json());
-            window.localStorage.setItem('user', JSON.stringify(user));  
-            //llamar a la funcion que estructura el token
+            if(user){
+                console.log("user desde el componente: ",user);
+                window.localStorage.setItem('user', user.token);  
+                console.log(window.localStorage.getItem('user'));
+                navigate('/partidos');
+            }
         } catch (error) {
             console.log(error);
         }

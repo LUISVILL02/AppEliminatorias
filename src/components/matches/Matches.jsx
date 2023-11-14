@@ -1,51 +1,27 @@
 import appService from '../../services/appService.js'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardMatch from './CardMatch.jsx';
 import FormMatch from './FormMatch.jsx';
 import { Button } from '../buttons/Button.jsx';
+import { setToken } from '../../services/appService.js';
 import logoFifa from '../../assets/2026_fifa_world_cup-logo_brandlogos.net_tikll.png'
 import './matchesStyles.css'
 
-const match1 = {
-    date: '2023-10-11',
-    stadium: 'maracana',
-    refree: 'nestor pitana',
-    localTeam: 'Brasil',
-    visitingTeam: 'Chile',
-    localGoals: 3,
-    visitingGoals: 0,
-    yellowCards: 2,
-    redCards: 0
-}
-const match2 = {
-    date: '2023-10-11',
-    stadium: 'bombonera',
-    refree: 'wilman roldan',
-    localTeam: 'Argentina',
-    visitingTeam: 'Peru',
-    localGoals: 2,
-    visitingGoals: 0,
-    yellowCards: 2,
-    redCards: 0
-}
-const listMatches = [match1, match2]
-
-
 export const Matches = () => {
-    const [matches, setMatches] = useState(listMatches)
-    //prueba solamente
+    const [matches, setMatches] = useState([])
     const [open, setOpen] = useState(false)
 
-    const user = true
-    try {
+    const userToken = window.localStorage.getItem('user');
+    useEffect(() => {
         const matches = async () => {
-            // const matches = await appService.getMatches();
-            // console.log(matches);
+            setToken(userToken);
+            
+            const matches = await appService.getMatches();
+            setMatches(matches);
         }  
         matches();
-    } catch (error) {
-        
-    }
+    } ,[])
+
     const handleMo = isModal => {
         setOpen(isModal)
     }
@@ -78,7 +54,7 @@ export const Matches = () => {
                     })}
                 </ul>
             </div>
-            {user ?<Button text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
+            {userToken ?<Button text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
             {open && <FormMatch onMatch={hanleMatch}/>}
         </>
     )

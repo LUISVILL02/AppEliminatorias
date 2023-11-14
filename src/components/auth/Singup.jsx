@@ -1,6 +1,7 @@
 import { singup } from './auth.js'
 import { useState } from 'react'
 import { ButtonSubmit } from '../buttons/Button.jsx';
+import { useNavigate } from 'react-router-dom';
 import './styles/singup.css'
 
 const Singup = () => {
@@ -8,12 +9,15 @@ const Singup = () => {
     const [password, setPassword] = useState('')
     const [user, setUser] = useState('')
 
+    const navigate = useNavigate();
+
     const hanleSingup = async (e) => {
         e.preventDefault()
         try {
-            //const userRegister = singup(user, email, password);
-            console.log(user, " ",email," ", password);
-            //console.log(userRegister);
+            const userRegister = singup(user, email, password);
+            if(userRegister){
+                navigate('/login');
+            }
         } catch (error) {
             console.log(error);
         }
