@@ -10,10 +10,15 @@ const fetching = async (url, datos) => {
 
 }
 
-export const login = (email, password) => {
+export const login = async (email, password) => {
     const datos = {email, password};
-    const res = fetching('login', datos);
-    return res.data;
+    const res = await fetching('login', datos);
+    if(res.status === 200){
+        const data = await res.json();
+        console.log(data);
+        return data;
+    }
+    throw new Error("Error en la autenticación");
 }
 
 export const singup = async (user, email, password) => {
