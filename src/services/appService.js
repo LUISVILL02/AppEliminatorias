@@ -1,17 +1,21 @@
-let token = null
+let userLocal = window.localStorage.getItem('user') ?? {
+    token: " ",
+    type: "",
+    id: 0,
+    username: "",
+    email: "",
+    roles: []
+};
+let user;
+userLocal.token !== " " ? user = JSON.parse(userLocal) : user = userLocal;
 const api = import.meta.env.VITE_URL_API_MATCHES;
 
-export const setToken = newToken => {
-    token = `Bearer ${newToken}`
-}
-
 const getMatches = async () => {
-    console.log(token);
     const res = await fetch(`${api}/Matches`,{
         method: "GET",
         headers: {
             "Content-type": "application/json",
-            Authorization: token
+            Authorization: `Bearer ${user.token}`
         }
     });
     if(res.status === 200){
@@ -28,15 +32,13 @@ export const postMatch = async (match) => {
         pattern: "dd/MM/yyyy",
     });
     const dateForm = dateFormater.substring(0, dateFormater.indexOf(","));
-    console.log("dateFormater:", dateForm);
     match.date = dateForm;
-    console.log("add:", token);
     const res = await fetch(`${api}/Matches`, {
         method: "POST",
         body: JSON.stringify(match),
         headers: {
             "Content-type": "application/json; charset=UTF-8",
-            Authorization: token
+            Authorization: `Bearer ${user.token}`
         }
     });
     if(res.status === 201){
@@ -46,4 +48,4 @@ export const postMatch = async (match) => {
     return res;
 }
 
-export default { getMatches, setToken, postMatch }
+export default { getMatches, postMatch }

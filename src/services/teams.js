@@ -1,7 +1,16 @@
 
 const api = import.meta.env.VITE_URL_API_MATCHES;
 
-const token = window.localStorage.getItem("user");
+let userLocal = window.localStorage.getItem('user') ?? {
+    token: " ",
+    type: "",
+    id: 0,
+    username: "",
+    email: "",
+    roles: []
+};
+let user;
+userLocal.token !== " " ? user = JSON.parse(userLocal) : user = userLocal;
 
 export const postTeams = async (teams) => {
     console.log("teams ",teams)
@@ -10,7 +19,7 @@ export const postTeams = async (teams) => {
         body: JSON.stringify(teams),
         headers: {
             "Content-type": "application/json; charset=UTF-8",
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${user.token}`
         }
     });
     if(res.status === 201){
@@ -25,7 +34,7 @@ export const getById = async (id) => {
         method: "GET",
         headers: {
             "Content-type": "application/json; charset=UTF-8",
-            Authorization: token
+            Authorization: user.token
         }
     });
     if(res.status === 200){
@@ -36,11 +45,12 @@ export const getById = async (id) => {
 }
 
 export const getTeams = async () => {
+    console.log("user ",user)
     const res = await fetch(`${api}/Teams`, {
         method: "GET",
         headers: {
             "Content-type": "application/json; charset=UTF-8",
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${user.token}`
         }
     });
     if(res.status === 200){
