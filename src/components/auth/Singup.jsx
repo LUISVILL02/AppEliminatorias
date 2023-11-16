@@ -25,7 +25,7 @@ const Singup = () => {
     return (
         <div className="singup-form">
             <form onSubmit={hanleSingup} className="singup">
-                <h1 className='tittle'>Registrarse</h1>
+                <h1 className='tittle-singup'>Registrarse</h1>
                 <div className="input-userr">
                     <label htmlFor="">Usuario</label>
                     <input type="text" onChange={({target}) => setUser(target.value)}/>

@@ -27,14 +27,14 @@ export const Login = () => {
     return (
         <main className="form">
             <form onSubmit={hanleLogin} className="login">
-                <h1 className='tittle'>Iniciar sesion</h1>
+                <h1 className='tittle-login'>Iniciar sesion</h1>
                 <div className="input-user">
-                    <label htmlFor="">Correo</label>
-                    <input type="email" onChange={({target}) => setEmail(target.value)}/>
+                    <label className="label-email" htmlFor="">Correo</label>
+                    <input className="input-email" type="email" onChange={({target}) => setEmail(target.value)}/>
                 </div>
                 <div className="input-password">
-                    <label htmlFor="">Contraseña</label>
-                    <input type="password" onChange={({target}) => setPassword(target.value)}/>
+                    <label className="label-password" htmlFor="">Contraseña</label>
+                    <input className='input-password' type="password" onChange={({target}) => setPassword(target.value)}/>
                 </div>
                 <ButtonSubmit text="Login"/>
             </form>

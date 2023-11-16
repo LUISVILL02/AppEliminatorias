@@ -86,66 +86,88 @@ const FormMatch = ({onMatch}) => {
         const addmatch = await postMatch(updateMatch);
     }
     return (
-        <form onSubmit={handleMatch} className="formPartido">
-            <h1 className="tituloPartido">Datos requeridos del partido</h1>
-            <div className="date">
-                <label htmlFor="">Fecha</label>
-                <input 
-                    type="date" 
-                    placeholder="dd/mm/yyyy"
-                    name='date'
-                    value={match.date}
-                    onChange={handleInputMatch}/>
-            </div>
-            <div className="stadium">
-                <label htmlFor="">Estadio</label>
-                <input 
-                    type="text" 
-                    placeholder="nombre del estadio"
-                    name="stadium"
-                    value={match.stadium}
-                    onChange={handleInputMatch}/>
-            </div>
-            <div className="reffere">
-                <label htmlFor="">Arbitro principal</label>
-                <input 
-                    type="text" 
-                    placeholder="nombre del arbitro"
-                    name="mainFerefe"
-                    value={match.mainFerefe}
-                    onChange={handleInputMatch}/>
-            </div>
-            <div className="local-team">
-                <label className="name-team-local" htmlFor="">Equipo local</label>
-                <select name="idLocalTeam" value={local} onChange={handleInputTeamOptionLocal}>
-                    <option value="">Seleccione un equipo</option>
-                    {teams.map((team) => {
-                        return (
-                            <option key={team.idTeam} value={team.idTeam}>{team.name}</option>
-                        )
-                    })}
-                </select>
-                <label htmlFor="" className="goles">Goles</label>
-                <input type="number" name="localGoal" value={result.localGoal} onChange={handleInputResult}/>
-            </div>
-            <div className="visiting-team">
-                <label className="name-visiting-team" htmlFor="">Equipo visitante</label>
-                <select name="idVisitingTeam" value={visiting} onChange={handleInputTeamOptionVisiting}>
-                    <option value="">Seleccione un equipo</option>
-                    {teams.map((team) => {
-                            return (
-                                <option key={team.idTeam} value={team.idTeam}>{team.name}</option>
-                            )
-                        })}
-                </select>
-                <input type="number" name="visitingGoal" value={result.visitingGoal} onChange={handleInputResult}/>
-            </div>
-            <img className="imgY" src={amarilla} alt="tarjeta amarilla" />
-            <input className="yellow" type="number" name="numberCardYell" value={result.numberCardYell} onChange={handleInputResult}/>
-            <img className="imgR" src={roja} alt="tarjeta roja" />
-            <input className="red" type="number" name="numberCardRed" value={result.numberCardRed} onChange={handleInputResult}/>
-            <button type="submit">Agregar</button>
-        </form>
+        <section className="main-formulario-partidos">
+            <form onSubmit={handleMatch} className="formPartido">
+                <h1 className="tituloPartido">Datos requeridos del partido</h1>
+                <div className="datos-generales">
+                    <div className="generales">
+                        <div className="date">
+                            <label htmlFor="">Fecha</label>
+                            <input 
+                                type="date" 
+                                placeholder="dd/mm/yyyy"
+                                name='date'
+                                value={match.date}
+                                onChange={handleInputMatch}/>
+                        </div>
+                        <div className="stadium">
+                            <label htmlFor="">Estadio</label>
+                            <input 
+                                type="text" 
+                                placeholder="nombre del estadio"
+                                name="stadium"
+                                value={match.stadium}
+                                onChange={handleInputMatch}/>
+                        </div>
+                        <div className="reffere">
+                            <label htmlFor="">Arbitro principal</label>
+                            <input 
+                                type="text" 
+                                placeholder="nombre del arbitro"
+                                name="mainFerefe"
+                                value={match.mainFerefe}
+                                onChange={handleInputMatch}/>
+                        </div>
+                    </div>
+                    <div className="for-teams">
+                        <div className="local-team">
+                            <div className="datas-local-1">
+                                <label className="name-team-local" htmlFor="">Equipo local</label>
+                                <select name="idLocalTeam" value={local} onChange={handleInputTeamOptionLocal}>
+                                    <option value="">Seleccione un equipo</option>
+                                    {teams.map((team) => {
+                                        return (
+                                            <option key={team.idTeam} value={team.idTeam}>{team.name}</option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                            <div className="datas-local-2">
+                                <label htmlFor="" className="goles">Goles</label>
+                                <input type="number" name="localGoal" value={result.localGoal} onChange={handleInputResult}/>
+                            </div>
+                        </div>
+                        <div className="visiting-team">
+                            <div className="datas-visitor-1">
+                                <label className="name-visiting-team" htmlFor="">Equipo visitante</label>
+                                <select name="idVisitingTeam" value={visiting} onChange={handleInputTeamOptionVisiting}>
+                                    <option value="">Seleccione un equipo</option>
+                                    {teams.map((team) => {
+                                            return (
+                                                <option key={team.idTeam} value={team.idTeam}>{team.name}</option>
+                                            )
+                                        })}
+                                </select>
+                            </div>
+                            <input type="number" name="visitingGoal" value={result.visitingGoal} onChange={handleInputResult}/>
+                        </div>
+                        <div className="cards">
+                            <div className="layaut-cards">
+                                <div className="card-yellow">
+                                    <img className="imgY" src={amarilla} alt="tarjeta amarilla" />
+                                    <input className="yellow" type="number" name="numberCardYell" value={result.numberCardYell} onChange={handleInputResult}/>
+                                </div>
+                            </div>
+                            <div className="card-red">
+                                <img className="imgR" src={roja} alt="tarjeta roja" />
+                                <input className="red" type="number" name="numberCardRed" value={result.numberCardRed} onChange={handleInputResult}/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Agregar</button>
+            </form>
+        </section>
     )
 }
 export default FormMatch;
