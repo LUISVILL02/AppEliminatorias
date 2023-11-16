@@ -1,65 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
-#formPartido{
-    border: 2px solid grey;
-    border-image: conic-gradient(grey) 1;
-    width: 1124px;
-    height: 601px;
-    top: 201px;
-    left: 158px;
-    margin: 60px 40px 70px 70px;
-    align-items: center;
+.main-formulario-partidos{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+
+.formPartido{
+    position: absolute;
+    border: 2px solid #4A4A4A;
+    background-color: #242424;
     border-radius: 20px; 
     font-family: 'Ubuntu', sans-serif;
+    top: 50%;
+    left: 20%;  
+    right: 20%;
+    padding: 30px;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formPartido label{
+    font-size: 25px;
+}
+.generales input{
+    height: 57px;
+    width: 280px;
+    border-radius: 10px;
+}
+.for-teams select{
+    height: 57px;
+    width: 280px;
+    border-radius: 10px;
+}
+.for-teams input{
+    height: 57px;
+    width: 50px;
+    border-radius: 10px;
 }
 
-#tituloPartido{
-    width: 719px;
-    height: 73px;
-    top: 54px;
+.datos-generales{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+}
+
+.tituloPartido{
     font-size: 50px;
     color: #6336E4;
-    margin-left: 50px;
+    font-weight: 400;
+    line-height: normal;
 }
 
-.red, .imgR{
-    position: absolute;
-    left: 10%;
-    bottom: -110%;
-    left: 54%;
+.generales, .for-teams{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
 }
 
+.generales .date, .generales .stadium, .generales .reffere{
+    display: flex;
+    flex-direction: column;
+}
+.for-teams{
+    display: flex;
+    flex-direction: column;
+}
 
+.local-team, .visiting-team{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
 
-.red{
-    width: 30px;
-    padding: 15px 8px;
-    left: 58%;
-    border-radius: 10px;
-    border-color: gray;
+.datas-local-1, .datas-visitor-1, .datas-local-2{
+    display: flex;
+    flex-direction: column;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.card-yellow, .card-red{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .imgR,.imgY{
-    width: 40px;
-    right: 23%;
-}
-
-.yellow, .imgY{
-    position: absolute;
-    left: 10%;
-    bottom: -110%;
-    left: 44%;
-}
-
-.localGoal, .visitingGoal{
-    position: absolutes;
-    right: 10%;
-}
-
-.yellow{
-    width: 30px;
-    padding: 15px 8px;
-    border-radius: 10px;
-    border-color: gray;
-    left: 48%;
+    width: 28px;
+    height: 53px;
 }

@@ -14,9 +14,10 @@
     justify-content: space-around;
     padding: 50px;
 }
-.tittle{
+.tittle-login{
     align-self: center;
     font-size: 50px;
+    color: #6336E4;
 }
 .input-user{
     display: flex;
@@ -24,16 +25,17 @@
     width: 100%;
     position: relative;
 }
-input{
+.input-email, .input-password{
     border: none;
     border-bottom: 1px solid #4A4A4A;
     background: none;
     padding: 10px;
     width: 100%;
 }
-input:focus {
+.input-email:focus .input-password:focus {
     all: unset;
     border: 1px solid #4A4A4A;
+    margin-top: 10px;
     padding: 20px;
     border-radius: 15px;
 }
@@ -43,7 +45,7 @@ input:focus {
     width: 100%;
     position: relative;
 }
-label{
+.label-email, .label-password{
     font-size: 32px;
     position: absolute;
     top: -15px;

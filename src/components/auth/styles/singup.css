@@ -5,6 +5,11 @@
     align-items: center;
     height: 100vh;
 }
+.tittle-singup{
+    align-self: center;
+    font-size: 50px;
+    color: #6336E4;
+}
 
 .singup{
     display: flex;
