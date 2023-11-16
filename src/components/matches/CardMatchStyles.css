@@ -11,9 +11,31 @@
     width: 1000px;
     padding: 0 50px 0 50px;
     overflow-y: hidden;
-
+    position: relative;
     gap: 40px;
 }
+.card:hover{
+    transition: 0.5s;
+    background-color: #292929;
+}
+
+
+.edit-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    fill: #CCCCCC;
+    width: 40px;
+    height: 40px;
+}
+
+.edit-icon:hover{
+    fill: #6336E4;
+    cursor: pointer;
+}
+
 .nombrePais{
     font-size: 30px;
 }
@@ -46,7 +68,6 @@ ul{
 .gol{
     font-size: 50px;
 }
-
 
 .flag{
     display: flex;

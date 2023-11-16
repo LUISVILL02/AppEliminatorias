@@ -7,6 +7,10 @@ header{
     align-items: center;
     padding: 40px;
     height: 120px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }
 
 nav{
@@ -38,13 +42,13 @@ li{
 }
 
 .navi{
-    text-decoration: none;
-    color: inherit;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 32px;
-  }
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+}
 
 
 .home-icon, .user-icon{
