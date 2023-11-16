@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { login } from './auth.js'
-import {setToken} from '../../services/appService.js'
 import { ButtonSubmit } from '../buttons/Button.jsx';
 import { useNavigate } from 'react-router-dom';
 import './styles/login.css'
@@ -16,9 +15,8 @@ export const Login = () => {
         try {
             const user = await login(email, password);
             if(user){
-                console.log("user desde el componente: ",user);
-                window.localStorage.setItem('user', user.token);  
-                console.log(window.localStorage.getItem('user'));
+                const userFinal = JSON.stringify(user);
+                window.localStorage.setItem('user', userFinal);  
                 navigate('/partidos');
             }
         } catch (error) {

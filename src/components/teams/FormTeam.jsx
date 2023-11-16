@@ -25,9 +25,7 @@ const FormTeam = () => {
     }
     const handleTeams = async (event) => {
         event.preventDefault();
-        console.log("team: ",team);
         const teamPost = await postTeams(team);
-        console.log(teamPost);
         setTeam(nacion)
     }
     return (

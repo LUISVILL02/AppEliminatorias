@@ -3,31 +3,37 @@ import { useEffect, useState } from 'react';
 import CardMatch from './CardMatch.jsx';
 import FormMatch from './FormMatch.jsx';
 import { Button } from '../buttons/Button.jsx';
-import { setToken } from '../../services/appService.js';
 import logoFifa from '../../assets/2026_fifa_world_cup-logo_brandlogos.net_tikll.png'
 import './matchesStyles.css'
+import './CardMatchStyles.css'
 
 export const Matches = () => {
     const [matches, setMatches] = useState([])
     const [open, setOpen] = useState(false)
 
-    const userToken = window.localStorage.getItem('user');
+    let userLocal = window.localStorage.getItem('user') ?? {
+        token: " ",
+        type: "",
+        id: 0,
+        username: "",
+        email: "",
+        roles: []
+    };
+    const user = userLocal.token
+
     useEffect(() => {
         const matchLis = async () => {
-            setToken(userToken);
             const matches = await appService.getMatches();
             setMatches(matches);
         }  
         matchLis();
     } ,[])
-    console.log("mat: ",matches);
 
     const handleMo = isModal => {
         setOpen(isModal)
     }
 
     const hanleMatch = (ma) => {
-        console.log("partido: ",ma);
         setMatches(prev => [
             ...prev,
             ma
@@ -45,7 +51,6 @@ export const Matches = () => {
                         </div>
                     </div>
                     {matches.length > 0 && matches.map((match) => {
-                        console.log("match: ",match);
                         return (
                             <li key={match.id}>
                                 <CardMatch match={match}/>
@@ -55,7 +60,7 @@ export const Matches = () => {
                     })}
                 </ul>
             </div>
-            {userToken ?<Button text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
+            {(user !== " ") ? <Button text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
             {open && <FormMatch onMatch={hanleMatch}/>}
         </>
     )

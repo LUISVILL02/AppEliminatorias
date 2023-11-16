@@ -4,8 +4,17 @@ import "./headerStyle.css";
 import { HomeIcon, UserIncon } from '../icons/Icons.jsx';
 import { ButtonNavigate } from '../buttons/Button.jsx';
 
+
 const Header = () => {
-    const user = true
+    let userLocal = window.localStorage.getItem('user') ?? {
+        token: " ",
+        type: "",
+        id: 0,
+        username: "",
+        email: "",
+        roles: []
+    };
+    const user = userLocal.token
     return (
         <header>
                 <nav>
@@ -19,7 +28,7 @@ const Header = () => {
                         <li>
                             <Link to="/api" className='navi'>Api</Link>
                         </li>
-                        {user && 
+                        {user !== " " && 
                         <li>
                             <Link to="/equipos" className='navi'>Equipos</Link>
                         </li>}
@@ -29,7 +38,7 @@ const Header = () => {
                             <Search />
                         </li>
                         <li>
-                            {user ? <Link to="/user"><UserIncon/></Link> : 
+                            {user !== " " ? <Link to="/user"><UserIncon/></Link> : 
                             <Link to="/login" className='btn-login'>Login</Link>}
                         </li>
                     </ul>

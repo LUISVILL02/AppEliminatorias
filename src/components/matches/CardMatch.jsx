@@ -1,10 +1,22 @@
 import { useEffect, useState } from "react";
 import { getById } from "../../services/teams.js";
+import { EditIcon } from '../icons/Icons.jsx';
 import "./CardMatchStyles.css";
 
 const CardMatch = ({ match }) => {
     const [teamLcal, setTeamLocal] = useState('');
     const [teamVisi, setTeamVisi] = useState('');
+
+    let userLocal = window.localStorage.getItem('user') ?? {
+        token: " ",
+        type: "",
+        id: 0,
+        username: "",
+        email: "",
+        roles: []
+    };
+    const user = userLocal.token
+
     useEffect(() => {
         const getTeam = async () => {
             const teamL = await getById(match.idLocalTeam);
@@ -18,6 +30,7 @@ const CardMatch = ({ match }) => {
 
     return (
         <div className="card">
+            {user !== " " && <EditIcon/>}
             <div className="flag" id="left">
                 <img src={teamLcal.flag} alt="bandera" className="bandera"/>
                 <h1 className="nombrePais">{teamLcal.name}</h1>

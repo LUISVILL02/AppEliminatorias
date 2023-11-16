@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import roja from '../../assets/roja.png';
 import amarilla from '../../assets/amarillo.png';
-import { setToken, postMatch } from '../../services/appService.js';
-import result, { postResult } from "../../services/result.js";
+import { postMatch } from '../../services/appService.js';
+import { postResult } from "../../services/result.js";
 import { getTeams } from "../../services/teams.js";
 import "./FormMatchStyles.css";
 
@@ -68,8 +68,6 @@ const FormMatch = ({onMatch}) => {
     }
     const handleMatch = async (event) => {
         event.preventDefault();
-        setToken(window.localStorage.getItem('user'));
-        console.log("valores : ",local, visiting, match);
         
         const scor = await postResult(result);
         setMatch(matchDates);
@@ -83,20 +81,18 @@ const FormMatch = ({onMatch}) => {
                 id: scor.id,
                 ...result }
             }
-        console.log("update", updateMatch, "score", scor, "result", result);
         setMatch(matchDates);
         onMatch(updateMatch)
         const addmatch = await postMatch(updateMatch);
-        console.log(addmatch);
     }
     return (
-        <form onSubmit={handleMatch} id="formPartido">
-            <h1 id="tituloPartido">Datos requeridos del partido</h1>
+        <form onSubmit={handleMatch} className="formPartido">
+            <h1 className="tituloPartido">Datos requeridos del partido</h1>
             <div className="date">
                 <label htmlFor="">Fecha</label>
                 <input 
                     type="date" 
-                    placeholder="13/10/23"
+                    placeholder="dd/mm/yyyy"
                     name='date'
                     value={match.date}
                     onChange={handleInputMatch}/>
@@ -105,7 +101,7 @@ const FormMatch = ({onMatch}) => {
                 <label htmlFor="">Estadio</label>
                 <input 
                     type="text" 
-                    placeholder="Metropolitano"
+                    placeholder="nombre del estadio"
                     name="stadium"
                     value={match.stadium}
                     onChange={handleInputMatch}/>
@@ -114,13 +110,13 @@ const FormMatch = ({onMatch}) => {
                 <label htmlFor="">Arbitro principal</label>
                 <input 
                     type="text" 
-                    placeholder="Wilman roldan"
+                    placeholder="nombre del arbitro"
                     name="mainFerefe"
                     value={match.mainFerefe}
                     onChange={handleInputMatch}/>
             </div>
             <div className="local-team">
-                <label htmlFor="">Equipo local</label>
+                <label className="name-team-local" htmlFor="">Equipo local</label>
                 <select name="idLocalTeam" value={local} onChange={handleInputTeamOptionLocal}>
                     <option value="">Seleccione un equipo</option>
                     {teams.map((team) => {
@@ -129,11 +125,11 @@ const FormMatch = ({onMatch}) => {
                         )
                     })}
                 </select>
-                <label htmlFor="" id="goles">Goles</label>
+                <label htmlFor="" className="goles">Goles</label>
                 <input type="number" name="localGoal" value={result.localGoal} onChange={handleInputResult}/>
             </div>
             <div className="visiting-team">
-                <label htmlFor="">Equipo visitante</label>
+                <label className="name-visiting-team" htmlFor="">Equipo visitante</label>
                 <select name="idVisitingTeam" value={visiting} onChange={handleInputTeamOptionVisiting}>
                     <option value="">Seleccione un equipo</option>
                     {teams.map((team) => {

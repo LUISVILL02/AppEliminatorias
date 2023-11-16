@@ -7,6 +7,7 @@ const Home = () => {
     const [isSesion, setIsSesion] = useState(false);
     const user = window.localStorage.getItem('user');
 
+
     const hanleSesion = (state) => {
         setIsSesion(state);
     }
@@ -17,7 +18,7 @@ const Home = () => {
                     <h1 id='titulo'>Eliminatorias<br/> mundiales de la FIFA</h1>
                     <p id='parrafo'>Consulta el estado de las<br/> eliminatorias rumbo al mundial <br/>de Estados unidos, Cánada y <br/>mexico del 2026.</p>
                     <div className="butons">
-                        {!user ? <Button text="Cerrar sesion" className="botones" onClick={hanleSesion}/> : <>
+                        {user ? <Button text="Cerrar sesion" className="botones" onClick={hanleSesion}/> : <>
                             <ButtonNavigate text="Login" route="/login" className="botones"/>
                             <ButtonNavigate text="Register" route="/register" className="botones"/>
                         </>}
