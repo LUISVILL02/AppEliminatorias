@@ -28,11 +28,11 @@ export const Login = () => {
         <main className="form">
             <form onSubmit={hanleLogin} className="login">
                 <h1 className='tittle-login'>Iniciar sesion</h1>
-                <div className="input-user">
+                <div className="user">
                     <label className="label-email" htmlFor="">Correo</label>
                     <input className="input-email" type="email" onChange={({target}) => setEmail(target.value)}/>
                 </div>
-                <div className="input-password">
+                <div className="password">
                     <label className="label-password" htmlFor="">Contraseña</label>
                     <input className='input-password' type="password" onChange={({target}) => setPassword(target.value)}/>
                 </div>
