@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
 
 .singup-form{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 115vh;
+    margin-top: 130px;
 }
 .tittle-singup{
     align-self: center;
     font-size: 50px;
     color: #6336E4;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 25px;
+    margin-top: 40px
 }
 
 .singup{
@@ -23,23 +29,34 @@
     padding: 50px;
 }
 
-.input-userr{
+.input-userr,.input-email,.input-passwordd{
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
+    border-bottom: 1px solid #4A4A4A;
 }
 
-.input-user-email{
-    display: flex;
-    flex-direction: column;
+
+.input-user-email, .input-user-password, .input-user-name{
+    border: none;
+    background: none;
+    padding: 10px;
     width: 100%;
-    position: relative;
+    margin-top: 35px;
+}
+.input-user-password{
+    margin-top: 60px;
+}
+.input-label{
+    font-size: 32px;
+    position: absolute;
 }
 
-.input-passwordd{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
+.boton{
+    margin: 40px;
+}
+
+#contraseña{
+    top: 10px;
 }

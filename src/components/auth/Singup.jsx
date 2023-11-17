@@ -23,24 +23,28 @@ const Singup = () => {
         }
     }
     return (
-        <div className="singup-form">
+        <main className='form'>       
+         <div className="singup-form">
             <form onSubmit={hanleSingup} className="singup">
                 <h1 className='tittle-singup'>Registrarse</h1>
-                <div className="input-userr">
-                    <label htmlFor="">Usuario</label>
-                    <input type="text" onChange={({target}) => setUser(target.value)}/>
-                </div>
-                <div className="input-user-email">
-                    <label htmlFor="">Correo</label>
-                    <input type="email" onChange={({target}) => setEmail(target.value)}/>
-                </div>
-                <div className="input-passwordd">
-                    <label htmlFor="">Contraseña</label>
-                    <input type="password" onChange={({target}) => setPassword(target.value)}/>
-                </div>
-                <ButtonSubmit text="Register"/>
-            </form>
-        </div>
+                    <div className="input-userr">
+                        <label className='input-label' htmlFor="">Usuario</label>
+                        <input type="text" onChange={({target}) => setUser(target.value)} className='input-user-name'/>
+                    </div>
+                    <div className="input-email">
+                        <label className='input-label' htmlFor="">Correo</label>
+                        <input type="email" onChange={({target}) => setEmail(target.value)} className='input-user-email'/>
+                    </div>
+                    <div className="input-passwordd">
+                        <label id='contraseña' className='input-label' htmlFor="">Contraseña</label>
+                        <input type="password" onChange={({target}) => setPassword(target.value)} className='input-user-password'/>
+                    </div>
+                    <div className='boton'>
+                    <ButtonSubmit text="Registrarme"/>
+                    </div>
+                </form>
+            </div>
+        </main>
     )
 }
 

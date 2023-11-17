@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+
 .form{
     display: flex;
     justify-content: center;
@@ -13,13 +16,14 @@
     border-radius: 20px;
     justify-content: space-around;
     padding: 50px;
+    margin-top: 115px;  
 }
 .tittle-login{
     align-self: center;
     font-size: 50px;
     color: #6336E4;
 }
-.input-user{
+.user{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -31,6 +35,9 @@
     background: none;
     padding: 10px;
     width: 100%;
+    margin-top: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15px;
 }
 .input-email:focus .input-password:focus {
     all: unset;
@@ -39,11 +46,12 @@
     padding: 20px;
     border-radius: 15px;
 }
-.input-password{
+.password{
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
+    padding-bottom: 10px;
 }
 .label-email, .label-password{
     font-size: 32px;

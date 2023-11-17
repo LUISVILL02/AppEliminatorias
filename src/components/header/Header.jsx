@@ -2,7 +2,7 @@ import  Search  from '../search/Search.jsx'
 import { Link }  from 'react-router-dom'
 import "./headerStyle.css";
 import { HomeIcon, UserIncon } from '../icons/Icons.jsx';
-import { ButtonNavigate } from '../buttons/Button.jsx';
+//import { ButtonNavigate } from '../buttons/Button.jsx';
 
 
 const Header = () => {
