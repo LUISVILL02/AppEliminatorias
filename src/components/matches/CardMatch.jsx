@@ -6,6 +6,7 @@ import "./CardMatchStyles.css";
 const CardMatch = ({ match }) => {
     const [teamLcal, setTeamLocal] = useState('');
     const [teamVisi, setTeamVisi] = useState('');
+    const [isEditing, setIsEditing] = useState(false);
 
     let userLocal = window.localStorage.getItem('user') ?? {
         token: " ",
@@ -27,15 +28,19 @@ const CardMatch = ({ match }) => {
         getTeam();
     }, []);
 
+    const hanleEdit = (click) => {
+        setIsEditing(click);
+    }
+
 
     return (
         <div className="card">
-            {user !== " " && <EditIcon/>}
+            {user !== " " && <EditIcon onClic={hanleEdit}/>}
             <div className="flag" id="left">
                 <img src={teamLcal.flag} alt="bandera" className="bandera"/>
                 <h1 className="nombrePais">{teamLcal.name}</h1>
             </div>
-            <span className="gol">{match.score.localGoal}</span>
+            {isEditing ? <input className="input-match-edit-teamL" type="number" placeholder={match.score.localGoal}/> : <span className="gol">{match.score.localGoal}</span>}
             <div className="datas">
                 <p className="fecha">{match.date}</p>
                 <div className="vs">
@@ -46,7 +51,7 @@ const CardMatch = ({ match }) => {
                     <p className="refree">{match.mainFerefe}</p>
                 </div>
             </div>
-            <span className="gol">{match.score.visitingGoal}</span>
+            {isEditing ? <input className="input-match-edit-teamV" type="number" placeholder={match.score.visitingGoal}/> : <span className="gol">{match.score.visitingGoal}</span>}
             <div className="flag" id="right">
                 <img src={teamVisi.flag} alt="bandera" className="bandera"/>
                 <h1 className="nombrePais">{teamVisi.name}</h1>

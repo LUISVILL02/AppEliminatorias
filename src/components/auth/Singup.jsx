@@ -23,24 +23,24 @@ const Singup = () => {
         }
     }
     return (
-        <main className='form'>       
-         <div className="singup-form">
-            <form onSubmit={hanleSingup} className="singup">
-                <h1 className='tittle-singup'>Registrarse</h1>
-                    <div className="input-userr">
+        <main className='form-singup'>       
+            <div className="singup-form">
+                <form onSubmit={hanleSingup} className="singup">
+                    <h1 className='tittle-singup'>Crea tu cuenta</h1>
+                    <div className="input-user-singup">
                         <label className='input-label' htmlFor="">Usuario</label>
                         <input type="text" onChange={({target}) => setUser(target.value)} className='input-user-name'/>
                     </div>
-                    <div className="input-email">
+                    <div className="input-email-singup">
                         <label className='input-label' htmlFor="">Correo</label>
                         <input type="email" onChange={({target}) => setEmail(target.value)} className='input-user-email'/>
                     </div>
-                    <div className="input-passwordd">
+                    <div className="input-password-singup">
                         <label id='contraseña' className='input-label' htmlFor="">Contraseña</label>
                         <input type="password" onChange={({target}) => setPassword(target.value)} className='input-user-password'/>
                     </div>
                     <div className='boton'>
-                    <ButtonSubmit text="Registrarme"/>
+                        <ButtonSubmit text="Sinup"/>
                     </div>
                 </form>
             </div>

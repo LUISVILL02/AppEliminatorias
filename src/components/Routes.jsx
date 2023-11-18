@@ -6,7 +6,7 @@ import Singup from './auth/Singup.jsx'
 import Matches from './matches/Matches.jsx';
 import Home from './home/Home.jsx'
 import FormMatch from './matches/FormMatch.jsx';
-import FormTeam from './teams/FormTeam.jsx';
+import { FormTeam } from './teams/FormTeam.jsx';
 import { NotFound } from './NotFount.jsx';
 
 const Rout = () => {

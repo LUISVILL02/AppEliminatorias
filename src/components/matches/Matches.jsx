@@ -60,7 +60,7 @@ export const Matches = () => {
                     })}
                 </ul>
             </div>
-            {(user !== " ") ? <Button text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
+            {(user !== " ") ? <Button className="btn-create-match" text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
             {open && <FormMatch onMatch={hanleMatch}/>}
         </>
     )

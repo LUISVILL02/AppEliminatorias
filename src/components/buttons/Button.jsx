@@ -6,7 +6,6 @@ export const Button = ({text, route, onClick}) => {
         onClick(true)
     }
     return (
-        //<Link to={route}>{text}</Link>
         <a href="" onClick={hanleModal} className='botones btn'>{text}</a>
     )
 }

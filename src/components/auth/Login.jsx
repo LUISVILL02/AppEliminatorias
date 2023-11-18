@@ -25,7 +25,7 @@ export const Login = () => {
     }
 
     return (
-        <main className="form">
+        <main className="form-login">
             <form onSubmit={hanleLogin} className="login">
                 <h1 className='tittle-login'>Iniciar sesion</h1>
                 <div className="user">
