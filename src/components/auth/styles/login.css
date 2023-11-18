@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
 
-.form{
+.form-login{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 .login{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     height: 70%;
-    width: 500px;
+    width: 600px;
     border: 1px solid #4A4A4A;
     border-radius: 20px;
     justify-content: space-around;
@@ -39,12 +40,13 @@
     font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
 }
-.input-email:focus .input-password:focus {
+.input-email:focus, .input-password:focus {
     all: unset;
     border: 1px solid #4A4A4A;
     margin-top: 10px;
     padding: 20px;
     border-radius: 15px;
+    height: 37px;
 }
 .password{
     display: flex;

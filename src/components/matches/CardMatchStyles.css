@@ -83,3 +83,12 @@ ul{
 .refree{
     font-size: 17px;
 }
+
+.input-match-edit-teamL, .input-match-edit-teamV{
+    width: 85px;
+    height: 60px;
+    padding: 25px;
+    background: #4a4a4a5d;
+    border: 1px solid #4A4A4A;
+    font-size: 50px;
+}

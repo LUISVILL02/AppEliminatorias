@@ -1,76 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
+
+.main-form-equipos{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.container-teams{
+  height: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 #datos{
-    width: 940px;
-    height: 77px;
-    left: 108px;
-    font-family: 'Ubuntu', sans-serif;
     font-size: 50px;
-    padding-left: 100px;
-    margin-top: 50px;
     font-family: 'Ubuntu', sans-serif;
     font-weight: normal;
+    margin-bottom: 50px;
 }
 
 #formEquipo{
-    border: 2px solid grey;
-    border-image: conic-gradient(grey) 1;
-    width: 1124px;
-    height: 601px;
-    top: 201px;
-    left: 158px;
-    margin: 60px 40px 70px 70px;
+    border: 2px solid #4A4A4A;
+    width: 80%;
+    height: 60%;
+    padding: 80px 100px;
     align-items: center;
     border-radius: 20px; 
     font-family: 'Ubuntu', sans-serif;
 }
 
-#inputs{
-    padding-left: 100px;
+.inputs{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .inputTeam{
-    width: 20%; 
-    height: 35px;
-    border-radius: 5px; 
-    background-color: rgba(255, 255, 255, 0.0);
+    width: 294px; 
+    height: 57px;
+    padding-left: 20px;
+    background-color: #4a4a4a00;
+    border-radius: 10px; 
     border: 1px solid #ccc;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
+.label-team{
+  font-size: 25px;
+}
 .inputTeam::placeholder {
-    padding-top: 5px; 
-    padding-left: 10px; 
-    font-family: 'Ubuntu', sans-serif;
-    line-height: 2;
-  }
+  color: rgba(255, 255, 255, 0.30);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.inputTeam:focus{
+  outline: none;
+  border: 2px solid #6336E4;
+}
 
 .formInput{
-    margin: 20px 0;
-    margin-bottom: 40px;
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column; 
 }
 
-#preview {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    left: 60%; 
-    bottom: 20%;
-  }
-
-  #preview img {
-    max-width: 100%; 
-    margin-top: 10px; 
-    margin-bottom: 20px;
-  }
-
-  #boton{
-    position: absolute;
-    left: 60%; 
-    bottom: 10%;
-  }
+.imagen-team-preview{
+  width: 179px;
+  height: 119px;
+  object-fit: cover;
+}
+.preview-boton{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.team-preview{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team-name-preview{
+  font-size: 30px;
+}
+.url{
+  text-decoration: none;
+  font-size: 20px;
+}

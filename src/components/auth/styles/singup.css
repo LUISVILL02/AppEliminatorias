@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
-
+.form-singup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 .singup-form{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 115vh;
-    margin-top: 130px;
+    height: 100%;
+    padding-top: 150px;
 }
 .tittle-singup{
     align-self: center;
@@ -14,27 +19,25 @@
     color: #6336E4;
     font-family: 'Ubuntu', sans-serif;
     margin-bottom: 25px;
-    margin-top: 40px
 }
 
 .singup{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 70%;
-    width: 500px;
+    height: 90%;
+    width: 650px;
     border: 1px solid #4A4A4A;
     border-radius: 20px;
     justify-content: space-around;
-    padding: 50px;
+    padding: 30px 70px 70px 70px;
 }
 
-.input-userr,.input-email,.input-passwordd{
+.input-user-singup,.input-email-singup,.input-password-singup{
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
-    border-bottom: 1px solid #4A4A4A;
 }
 
 
@@ -44,19 +47,25 @@
     padding: 10px;
     width: 100%;
     margin-top: 35px;
+    border-bottom: 1px solid #4A4A4A;
+    font-size: 25px;
 }
-.input-user-password{
-    margin-top: 60px;
+.input-user-email:focus,
+.input-user-password:focus, 
+.input-user-name:focus{
+    all: unset;
+    border: 1px solid #4A4A4A;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    height: 37px;
+    font-size: 25px;
 }
+
 .input-label{
     font-size: 32px;
     position: absolute;
+    transform: translate(0px, -15px);
 }
 
-.boton{
-    margin: 40px;
-}
 
-#contraseña{
-    top: 10px;
-}

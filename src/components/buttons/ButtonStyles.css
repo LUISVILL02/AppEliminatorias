@@ -26,3 +26,8 @@
     color: white;
     transition: 0.5s;
 }
+.buttons:hover{
+    background-color: #6336E4;
+    color: white;
+    transition: 0.5s;
+}   

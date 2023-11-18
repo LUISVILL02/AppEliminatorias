@@ -26,3 +26,21 @@
     background: linear-gradient(90deg, #A6A4C0 0.09%, #B589FC 99.92%);
     padding: 20px;
 }
+.btn-create-match{
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    width: 250px;
+    background-color: #242424;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #6336E4;
+    border-radius: 30px;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    padding: 14px 60px;
+}
