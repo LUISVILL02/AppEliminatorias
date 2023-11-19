@@ -5,6 +5,7 @@ import { postMatch } from '../../services/appService.js';
 import { postResult } from "../../services/result.js";
 import { getTeams } from "../../services/teams.js";
 import "./FormMatchStyles.css";
+import { CloseIcon } from "../icons/Icons.jsx";
 
 
 const score ={
@@ -24,7 +25,7 @@ const matchDates = {
         ...score}
 }
 
-const FormMatch = ({onMatch}) => {
+const FormMatch = ({onMatch, closeModal}) => {
     const [match, setMatch] = useState(matchDates);
     const [result, setResult] = useState(score);
     const [teams, setTeams] = useState([]);
@@ -35,6 +36,7 @@ const FormMatch = ({onMatch}) => {
         const getTeam = async () => {
             const teamList = await getTeams();
             setTeams(teamList);
+            console.log(teamList);
         }
         getTeam();
     }, []);
@@ -85,9 +87,13 @@ const FormMatch = ({onMatch}) => {
         onMatch(updateMatch)
         const addmatch = await postMatch(updateMatch);
     }
+    const hanleCloseModal = () => {
+        closeModal(true);
+    }
     return (
         <section className="main-formulario-partidos">
             <form onSubmit={handleMatch} className="formPartido">
+                <div onClick={hanleCloseModal}><CloseIcon/></div>
                 <h1 className="tituloPartido">Datos requeridos del partido</h1>
                 <div className="datos-generales">
                     <div className="generales">
@@ -165,7 +171,7 @@ const FormMatch = ({onMatch}) => {
                         </div>
                     </div>
                 </div>
-                <button type="submit">Agregar</button>
+                <button className="btn-formMatch" type="submit">Agregar</button>
             </form>
         </section>
     )

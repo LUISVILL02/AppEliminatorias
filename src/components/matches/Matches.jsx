@@ -32,6 +32,9 @@ export const Matches = () => {
     const handleMo = isModal => {
         setOpen(isModal)
     }
+    const hanleCloseModal = close => {
+        setOpen(!close)
+    }
 
     const hanleMatch = (ma) => {
         setMatches(prev => [
@@ -61,7 +64,7 @@ export const Matches = () => {
                 </ul>
             </div>
             {(user !== " ") ? <Button className="btn-create-match" text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
-            {open && <FormMatch onMatch={hanleMatch}/>}
+            {open && <FormMatch onMatch={hanleMatch} closeModal={hanleCloseModal}/>}
         </>
     )
 }
