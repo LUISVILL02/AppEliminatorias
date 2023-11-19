@@ -45,7 +45,6 @@ export const getById = async (id) => {
 }
 
 export const getTeams = async () => {
-    console.log("user ",user)
     const res = await fetch(`${api}/Teams`, {
         method: "GET",
         headers: {

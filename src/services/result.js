@@ -28,4 +28,20 @@ export const postResult = async (result) => {
     return res;
 }
 
-export default { postResult }
+export const updateResult = async (match, score) => {
+    const res = await fetch(`${api}/results/${match.score.id}`, {
+        method: "PUT",
+        body: JSON.stringify(score),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Authorization: `Bearer ${user.token}`
+        }
+    })
+    if(res.status === 200){
+        const data = await res.json();
+        return data;
+    }
+    return res;
+}
+
+export default { postResult, updateResult }
