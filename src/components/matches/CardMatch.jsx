@@ -25,6 +25,8 @@ const CardMatch = ({ match }) => {
         email: "",
         roles: []
     };
+    const userJson = userLocal.token !== " " ? JSON.parse(userLocal): userLocal;
+    let isAdmin = userJson.roles.find(role => role === 'ROLE_ADMIN') === 'ROLE_ADMIN';
     const user = userLocal.token
 
     useEffect(() => {
@@ -63,7 +65,7 @@ const CardMatch = ({ match }) => {
 
     return (
         <div className="card">
-            {user !== " " && <EditIcon onClic={hanleEdit}/>}
+            {(user !== " " && isAdmin)&& <EditIcon onClic={hanleEdit}/>}
             <div className="flag" id="left">
                 <img src={teamLcal.flag} alt="bandera" className="bandera"/>
                 <h1 className="nombrePais">{teamLcal.name}</h1>

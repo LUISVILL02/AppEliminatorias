@@ -21,8 +21,13 @@ export const login = async (email, password) => {
     throw new Error("Error en la autenticación");
 }
 
-export const singup = async (user, email, password) => {
-    const datos = {user, email, password};
-    const res = fetching('singup', datos);
-    return res;
+export const singup = async (username, email, password) => {
+    const role = ["user"]
+    const datos = {username, email, password, role};
+    console.log(datos);
+    const res = await fetching('singup', datos);
+    if(res.status === 200){
+        return data;
+    }
+    throw new Error("Error en el registro");
 }

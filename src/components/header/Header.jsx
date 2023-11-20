@@ -7,13 +7,15 @@ import { HomeIcon, UserIncon } from '../icons/Icons.jsx';
 
 const Header = () => {
     let userLocal = window.localStorage.getItem('user') ?? {
-        token: " ",
-        type: "",
-        id: 0,
-        username: "",
-        email: "",
-        roles: []
+        "token": " ",
+        "type": "",
+        "id": 0,
+        "username": "",
+        "email": "",
+        "roles": []
     };
+    const userJson = userLocal.token !== " " ? JSON.parse(userLocal): userLocal;
+    let isAdmin = userJson.roles.find(role => role === 'ROLE_ADMIN') === 'ROLE_ADMIN';
     const user = userLocal.token
     return (
         <header>
@@ -28,7 +30,7 @@ const Header = () => {
                         <li>
                             <Link to="/api" className='navi'>Api</Link>
                         </li>
-                        {user !== " " && 
+                        {(user !== " " && isAdmin) && 
                         <li>
                             <Link to="/equipos" className='navi'>Equipos</Link>
                         </li>}

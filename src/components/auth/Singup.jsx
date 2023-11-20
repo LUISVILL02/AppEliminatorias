@@ -14,6 +14,7 @@ const Singup = () => {
     const hanleSingup = async (e) => {
         e.preventDefault()
         try {
+            console.log(user, email, password);
             const userRegister = singup(user, email, password);
             if(userRegister){
                 navigate('/login');

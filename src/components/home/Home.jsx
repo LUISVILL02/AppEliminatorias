@@ -18,17 +18,17 @@ const Home = () => {
         <>
             <main className='main-home'>
                 <section className='text'>
-                    <h1 id='titulo'>Eliminatorias<br/> mundiales de la FIFA</h1>
-                    <p id='parrafo'>Consulta el estado de las<br/> eliminatorias rumbo al mundial <br/>de Estados unidos, Cánada y <br/>mexico del 2026.</p>
+                    <h1 id='titulo'>Eliminatorias mundiales de la FIFA</h1>
+                    <p id='parrafo'>Consulta el estado de las<br/> eliminatorias rumbo al Mundial <br/>de Estados Unidos, Canadá y <br/>México del 2026.</p>
                     <div className="butons">
-                        {user ? <button className='botones' onClick={hanleSesion}>logut</button>: <>
+                        {user ? <button className='botones-logup-home' onClick={hanleSesion}>Logut</button>: <>
                             <ButtonNavigate text="Login" route="/login" className="botones"/>
                             <ButtonNavigate text="Register" route="/register" className="botones"/>
                         </>}
                     </div>
                 </section>
                 <section className='image-home'>
-                    <img src={copa} alt="Imagen de la copa" id='copa'/>
+                    <div className='copa'></div>
                 </section>
             </main>
         </>

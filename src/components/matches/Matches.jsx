@@ -19,6 +19,8 @@ export const Matches = () => {
         email: "",
         roles: []
     };
+    const userJson = userLocal.token !== " " ? JSON.parse(userLocal): userLocal;
+    let isAdmin = userJson.roles.find(role => role === 'ROLE_ADMIN') === 'ROLE_ADMIN';
     const user = userLocal.token
 
     useEffect(() => {
@@ -63,7 +65,7 @@ export const Matches = () => {
                     })}
                 </ul>
             </div>
-            {(user !== " ") ? <Button className="btn-create-match" text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
+            {(user !== " " && isAdmin) ? <Button className="btn-create-match" text="Crear partido" route='/agregarPartido' onClick={handleMo}/> : <></>}
             {open && <FormMatch onMatch={hanleMatch} closeModal={hanleCloseModal}/>}
         </>
     )
