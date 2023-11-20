@@ -1,29 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
   
-  .search button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: 'Ubuntu', sans-serif;
-  }
+.search button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Ubuntu', sans-serif;
+}
   
 
-  .buscador{
-    background: none;
-    width: 400px;
-    height: 60px;
-    padding: 10px 0;
-    border: 1px solid white;
-    border-radius: 10px 0 0 10px;
-    font-family: 'Ubuntu', sans-serif;
-  }
-  .buscador::placeholder{
-    color: white;
-    padding-left: 10px;
-    font-size: 22px;
-    text-justify: auto;
-  }
+.buscador{
+  background: none;
+  width: 400px;
+  height: 60px;
+  padding: 10px 15px;
+  border-right: none;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  border-radius: 15px 0 0 15px;
+  border-color: white;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 25px;
+}
+.buscador:focus{
+  outline: none;
+}
+.buscador:focus::placeholder{
+  color: #ffffff26;
+}
+.buscador::placeholder{
+  color: white;
+  font-size: 22px;
+  text-justify: auto;
+}
 
 .search-container{
   display: flex;
@@ -32,10 +42,14 @@
 }
 .btn-search-active{
   background: none;
-  border: 1px solid white;
+  border-right: 2px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  border-left: none;
   height: 60px;
   padding-left: 10px;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 15px 15px 0;
+  transition: height 0.5s ease; 
 }
 .btn-search{
   border: none;

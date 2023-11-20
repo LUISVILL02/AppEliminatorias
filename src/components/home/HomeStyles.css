@@ -5,7 +5,7 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
-    padding-left: 50px;
+    padding-left: 100px;
 }
 
 #titulo{
@@ -13,6 +13,17 @@
     font-size: 70px;
     font-weight: 700;
     color: #AD90FF;
+    animation: fluido 30s ease-in-out infinite;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;   
+}
+@keyframes fluido {
+    0% { background-position: 0 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0 50% }
 }
 
 #parrafo{
@@ -30,22 +41,45 @@
 }
 
 
-#copa{
+.copa{
     width: 100%;
     height: 100%;
-    opacity: 20%;
-    object-fit: cover;
-    border-image: conic-gradient(#1F1F21, #1F1F21) 1;
+    opacity: 0.2;
+    background: url(../../assets/copaFondo.jpg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 50px 60px 100px 70px #242424, 0 0 100px 70px #242424;
+    border: 1px solid #242424;
 }
 
 .image-home{
     width: 100%;
     height: 100%;
+    flex: 1.9;
 }
 .text{
     display: flex;
     flex-direction: column;
     gap: 70px;
-    padding-top: 170px;
+    padding-top: 300px;
     width: 100%;
+    flex: 2;
+}
+.botones-logup-home{
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #6336E4;
+    border-radius: 30px;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    padding: 14px 60px;
+}
+.botones-logup-home:hover{
+    background-color: #6336E4;
+    color: white;
+    transition: 0.5s;
 }

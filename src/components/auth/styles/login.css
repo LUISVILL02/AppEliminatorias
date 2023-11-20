@@ -38,7 +38,7 @@
     width: 100%;
     margin-top: 20px;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 15px;
+    font-size: 25px;
 }
 .input-email:focus, .input-password:focus {
     all: unset;
@@ -47,6 +47,7 @@
     padding: 20px;
     border-radius: 15px;
     height: 37px;
+    font-size: 25px;
 }
 .password{
     display: flex;
