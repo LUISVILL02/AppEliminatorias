@@ -6,7 +6,7 @@ import { postResult } from "../../services/result.js";
 import { getTeams } from "../../services/teams.js";
 import "./FormMatchStyles.css";
 import { CloseIcon } from "../icons/Icons.jsx";
-
+import PropTypes from 'prop-types';
 
 const score ={
     visitingGoal: 0,
@@ -60,6 +60,7 @@ const FormMatch = ({onMatch, closeModal}) => {
             ...result,
             [target.name]: target.value
         })
+        
         setMatch((prevMatch) => ({
             ...prevMatch,
             score: {
@@ -176,4 +177,10 @@ const FormMatch = ({onMatch, closeModal}) => {
         </section>
     )
 }
+
+FormMatch.propTypes = {
+    onMatch: PropTypes.func.isRequired,
+    closeModal: PropTypes.func.isRequired, 
+  };
+
 export default FormMatch;
