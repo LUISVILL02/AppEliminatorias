@@ -41,6 +41,8 @@
   flex-direction: row;
 }
 .btn-search-active{
+  display: flex;
+  justify-content: center;
   background: none;
   border-right: 2px solid white;
   border-top: 2px solid white;
@@ -52,6 +54,9 @@
   transition: height 0.5s ease; 
 }
 .btn-search{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: none;
   height: 60px;
@@ -63,4 +68,9 @@
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  cursor: pointer;
+}
+.search-icon path{
+  font-display: flex;
+  justify-content: center;
 }
