@@ -58,4 +58,6 @@ export const getTeams = async () => {
     }
     return res;
 }
+
+
 export default { postTeams, getById, getTeams }
