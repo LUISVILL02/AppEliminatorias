@@ -8,6 +8,7 @@ import Home from './home/Home.jsx'
 import FormMatch from './matches/FormMatch.jsx';
 import { FormTeam } from './teams/FormTeam.jsx';
 import { NotFound } from './NotFount.jsx';
+import { MatchTeam } from './matches/MatchTeam.jsx';
 
 const Rout = () => {
     return (
@@ -21,6 +22,7 @@ const Rout = () => {
                 <Route path='register' element={<Singup></Singup>}></Route>
                 <Route path='equipos' element={<FormTeam></FormTeam>}></Route>
                 <Route path='agregarPartido' element={<FormMatch></FormMatch>}></Route>
+                <Route path="search/:searchValue" element={<MatchTeam/>}/>
                 <Route path='*' element={<NotFound></NotFound>}></Route>
             </Routes>
         </>

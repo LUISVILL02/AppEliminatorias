@@ -1,59 +1,48 @@
 import { useState } from 'react';
-import './SearchStyles.css';
 import { SearchIcon } from '../icons/Icons';
-import MatchTeam from '../matches/MatchTeam.jsx'; 
+import { useNavigate } from 'react-router-dom';
+import './SearchStyles.css';
 
 const Search = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [searchText, setSearchText] = useState('');
-  const [enteredText, setEnteredText] = useState('');
-  const [open, setOpen] = useState(false)
+  const [searchValue, setSearchValue] = useState('');
+  const navigate = useNavigate();
 
   const toggleSearch = () => {
     setIsSearchActive(!isSearchActive);
   };
 
   const handleInputChange = (event) => {
-    setEnteredText('');
-    setSearchText(event.target.value);
+    console.log(event.target.value);
+    setSearchValue(event.target.value);
   };
 
-  const handleEnterKey = (event) => {
-    if (event.key === 'Enter') {
-      setEnteredText(searchText);
-    }
-  };
 
-const hanleCloseModal = close => {
-    setOpen(!close)
-}
-
+  const handleTeam = (event) => {
+    event.preventDefault();
+    console.log(searchValue);
+    navigate(`/search/${searchValue}`);
+    setSearchValue('');	
+  }
 
 
   const selector = isSearchActive ? 'btn-search-active' : 'btn-search';
 
   return (
-    <div className="search-container">
+    <form onSubmit={handleTeam} className="search-container">
       {isSearchActive && (
         <input
           type="text"
           placeholder="Buscar..."
           className="buscador"
-          value={searchText}
+          value={searchValue}
           onChange={handleInputChange}
-          onKeyDown={handleEnterKey}
         />
       )}
-      <button onClick={toggleSearch} className={selector}>
-        <SearchIcon />
-      </button>
-
-      {enteredText && (
-        <>
-          {open && <MatchTeam  searchData={enteredText} closeModal={hanleCloseModal} />}
-        </>
-      )}
-    </div>
+      <div onClick={toggleSearch} className={selector}>
+        <SearchIcon/>
+      </div>
+    </form>
   );
 };
 
