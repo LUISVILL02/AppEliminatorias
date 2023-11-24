@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { login } from './auth.js';
 import { ButtonSubmit } from '../buttons/Button.jsx';
 import { useNavigate } from 'react-router-dom';
-import { EyeIcon } from '../icons/icons.jsx';  // Importa el nuevo componente EyeIcon
+import { EyeIcon } from '../icons/icons.jsx'; 
 import './styles/login.css';
 
 export const Login = () => {
