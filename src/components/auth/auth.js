@@ -24,10 +24,9 @@ export const login = async (email, password) => {
 export const singup = async (username, email, password) => {
     const role = ["user"]
     const datos = {username, email, password, role};
-    console.log(datos);
     const res = await fetching('singup', datos);
     if(res.status === 200){
-        return data;
+        return res;
     }
-    throw new Error("Error en el registro");
+    throw new Error("Error en el registro"); 
 }
