@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
-.form-singup{
+.form-singup {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-.singup-form{
+
+.singup-form {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     padding-top: 150px;
 }
-.tittle-singup{
+
+.tittle-singup {
     align-self: center;
     font-size: 50px;
     color: #6336E4;
@@ -21,7 +23,7 @@
     margin-bottom: 25px;
 }
 
-.singup{
+.singup {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -33,26 +35,24 @@
     padding: 30px 70px 70px 70px;
 }
 
-.input-user-singup,.input-email-singup,.input-password-singup{
+.input-user-singup, .input-email-singup, .input-password-singup {
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
 }
 
-
-.input-user-email, .input-user-password, .input-user-name{
+.input-user-email, .input-user-password, .input-user-name {
     border: none;
     background: none;
     padding: 10px;
-    width: 100%;
+    width: calc(100% - 20px); 
     margin-top: 35px;
     border-bottom: 1px solid #4A4A4A;
     font-size: 25px;
 }
-.input-user-email:focus,
-.input-user-password:focus, 
-.input-user-name:focus{
+
+.input-user-email:focus, .input-user-password:focus, .input-user-name:focus {
     all: unset;
     border: 1px solid #4A4A4A;
     margin-top: 10px;
@@ -60,12 +60,21 @@
     border-radius: 15px;
     height: 37px;
     font-size: 25px;
+    width: calc(100% - 20px);
 }
 
-.input-label{
+.input-label {
     font-size: 32px;
     position: absolute;
     transform: translate(0px, -15px);
 }
 
-
+.eye-icon {
+    position: absolute;
+    top: 65%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}

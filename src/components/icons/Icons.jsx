@@ -52,3 +52,27 @@ export const CloseIcon = () => {
         </svg>
     )
 }
+
+export const EyeIcon = ({ onClick, visible }) => {
+    const [clicked, setClicked] = useState(false);
+  
+    const handleClick = () => {
+      setClicked(!clicked);
+      onClick(!clicked);
+    };
+  
+    return (
+      <svg
+        onClick={handleClick}
+        className={`eye-icon ${visible ? 'visible' : ''}`}
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 640 512"
+      >
+        <path
+          d="M602.6 296.1C551.6 357.6 470.3 384 384 384s-167.6-26.4-218.6-87.9C47.8 269.7 0 327.3 0 384c0 53 43 96 96 96s96-43 96-96c0-37.6-21.6-77.6-57.2-112.4C153.5 177.6 266.6 96 384 96s230.5 81.6 297.2 175.6C604.4 306.3 640 345.7 640 384c0 53-43 96-96 96s-96-43-96-96c0-37.5 21.6-77.5 57.2-112.4zM320 320c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zm112 0c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48z"
+          fill="currentColor"
+        />
+      </svg>
+    );
+  };
