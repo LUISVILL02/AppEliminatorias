@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+.team-container {
+    position: fixed;
+    border: 2px solid #4A4A4A;
+    background-color: #242424;
+    border-radius: 20px; 
+    font-family: 'Ubuntu', sans-serif;
+    top: 20%;
+    left: 30%;  
+    right: 30%;
+    padding: 30px;
+    height: auto;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    box-shadow: 0px 0px 50px 10px #171717, 0px 0px 50px 500px #1f1f1fa2;
+  }
+  
+.banderaTeam{
+    width: 200px;
+    height: 200px;
+    margin: 60px 0;
+  }
+  
+.nombreEquipo{
+    font-size: 35px;
+    margin-bottom: 10px;
+  }
+  
+.nombreTecnico {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+.titulo{
+    color: #6336E4;
+  }
+  
+  .team-container button {
+    background-color: #6436e400;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px 30px;
+    cursor: pointer;
+    border: 2px solid #6336E4;
+    border-radius: 20px;
+  }
+  
+  .team-container button:hover {
+    background-color: #6336E4;
+  }
+  
