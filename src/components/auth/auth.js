@@ -30,3 +30,8 @@ export const singup = async (username, email, password) => {
     }
     throw new Error("Error en el registro"); 
 }
+
+export const logout = () => {
+    localStorage.removeItem('user');
+    window.dispatchEvent(new Event('userUpdated'));
+  };

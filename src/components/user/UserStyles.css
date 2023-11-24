@@ -44,3 +44,21 @@
     margin-bottom: 30px;
   }
   
+  .cerrarSesion {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 25px;
+  }
+  
+  .cerrarSesion:hover {
+    background-color: #ff3333;
+  }

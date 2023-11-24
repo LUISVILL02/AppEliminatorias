@@ -9,9 +9,10 @@ const Home = () => {
     const user = window.localStorage.getItem('user');
     const navigate = useNavigate();
 
-
-    const hanleSesion = () => {
+ 
+    const handleSesion = () => {
         window.localStorage.removeItem('user');
+        window.dispatchEvent(new Event('userLoggedOut'));
         navigate('/login');
     }
     return (
@@ -21,7 +22,7 @@ const Home = () => {
                     <h1 id='titulo'>Eliminatorias mundiales de la FIFA</h1>
                     <p id='parrafo'>Consulta el estado de las<br/> eliminatorias rumbo al Mundial <br/>de Estados Unidos, Canadá y <br/>México del 2026.</p>
                     <div className="butons">
-                        {user ? <button className='botones-logup-home' onClick={hanleSesion}>Logut</button>: <>
+                        {user ? <button className='botones-logup-home' onClick={handleSesion}>Logout</button> : <>
                             <ButtonNavigate text="Login" route="/login" className="botones"/>
                             <ButtonNavigate text="Register" route="/register" className="botones"/>
                         </>}
@@ -32,6 +33,7 @@ const Home = () => {
                 </section>
             </main>
         </>
-    )
+    );
 }
+
 export default Home;
