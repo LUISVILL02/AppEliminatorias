@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./headerStyle.css";
 import { HomeIcon, UserIncon } from '../icons/Icons.jsx';
+import Search from '../search/Search.jsx';
 
 const Header = () => {
   const [user, setUser] = useState(() => {
@@ -55,6 +56,9 @@ const Header = () => {
             </li>}
         </ul>
         <ul className='ul2'>
+          <li>
+            <Search />
+          </li>
           <li>
             {user.token ? (
               <Link to="/user" className='navi'><UserIncon /></Link>
