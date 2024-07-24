@@ -2,7 +2,7 @@ import { singup } from './auth.js';
 import { useState } from 'react';
 import { ButtonSubmit } from '../buttons/Button.jsx';
 import { useNavigate } from 'react-router-dom';
-import { EyeIcon } from '../icons/icons.jsx'; 
+import { EyeIcon } from '../icons/Icons.jsx'; 
 import './styles/singup.css';
 
 const Singup = () => {
