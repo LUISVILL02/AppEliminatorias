@@ -5,7 +5,7 @@ import FormMatch from './FormMatch.jsx';
 import { Button } from '../buttons/Button.jsx';
 import Team from '../teams/Team.jsx';  // Importa el componente Team
 import logoFifa from '../../assets/2026_fifa_world_cup-logo_brandlogos.net_tikll.png'
-import './matchesStyles.css'
+import './MatchesStyles.css'
 import './CardMatchStyles.css'
 
 export const Matches = () => {
