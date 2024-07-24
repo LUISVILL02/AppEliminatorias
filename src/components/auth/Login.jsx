@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { login } from './auth.js';
 import { ButtonSubmit } from '../buttons/Button.jsx';
 import { useNavigate } from 'react-router-dom';
-import { EyeIcon } from '../icons/icons.jsx'; 
+import { EyeIcon } from '../icons/Icons.jsx'; 
 import './styles/login.css';
 
 const Login = () => {
